@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
+import { HttpClientModule } from '@angular/common/http'
 
 import { StoreModule } from '@ngrx/store'
 
@@ -8,7 +9,6 @@ import { AppComponent } from 'src/app/app.component'
 import { AuthModule } from 'src/app/auth/auth.module'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from 'src/environments/environment.prod'
-import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [AppComponent],
