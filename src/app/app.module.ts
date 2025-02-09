@@ -9,6 +9,7 @@ import { AppComponent } from 'src/app/app.component'
 import { AuthModule } from 'src/app/auth/auth.module'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from 'src/environments/environment.prod'
+import { EffectsModule } from '@ngrx/effects'
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { environment } from 'src/environments/environment.prod'
       maxAge: 25,
       logOnly: environment.production,
     }),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent],
