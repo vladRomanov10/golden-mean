@@ -7,6 +7,7 @@ import { Observable } from 'rxjs'
 import { isSubmittingSelector } from 'src/app/auth/store/selectors'
 import { AuthService } from 'src/app/auth/services/auth.service'
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface'
+import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface'
 
 @Component({
   selector: 'gm-register',
@@ -29,15 +30,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.store.dispatch(registerAction(this.form.value))
-    this.authService.register(this.form.value).subscribe({
-      next: (currentUser: CurrentUserInterface) => {
-        console.log('Current user: ', currentUser)
-      },
-      error: (err) => {
-        console.log(`err: `, err)
-      },
-    })
+    const request: RegisterRequestInterface = {
+      user: this.form.value,
+    }
+    this.store.dispatch(registerAction({ request }))
   }
 
   private initializeForm(): void {
