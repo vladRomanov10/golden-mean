@@ -19,7 +19,7 @@ import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.inter
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent implements OnInit {
-  form!: FormGroup
+  public form!: FormGroup
   isSubmitting$!: Observable<boolean>
   backendErrors$!: Observable<BackendErrorsInterface | null>
 
