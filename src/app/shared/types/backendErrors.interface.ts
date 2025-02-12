@@ -1,6 +1,3 @@
 export interface BackendErrorsInterface {
-  message: string
-  errors: {
-    [key: string]: string
-  }
+  [key: string]: string
 }
