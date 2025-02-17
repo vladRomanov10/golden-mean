@@ -11,6 +11,8 @@ import {
 
 import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface'
 import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface'
+import { LoginRequestInterface } from 'src/app/auth/types/loginRequest.interface'
+import { loginAction } from 'src/app/auth/store/actions/login.action'
 
 @Component({
   selector: 'app-login',
@@ -33,10 +35,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const request: RegisterRequestInterface = {
+    const request: LoginRequestInterface = {
       user: this.form.value,
     }
-    this.store.dispatch(registerAction({ request }))
+    this.store.dispatch(loginAction({ request }))
   }
 
   private initializeForm(): void {
