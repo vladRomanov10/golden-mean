@@ -5,6 +5,8 @@ import {
   registerFailureActions,
   registerSuccessActions,
 } from 'src/app/auth/store/actions/register.action'
+import { loginAction } from 'src/app/auth/store/actions/login.action'
+import { state } from '@angular/animations'
 
 const initialState: AuthStateInterface = {
   isSubmitting: false,
@@ -38,6 +40,14 @@ const authReducer = createReducer(
       ...state,
       isSubmitting: false,
       validationErrors: action.errors,
+    }),
+  ),
+  on(
+    loginAction,
+    (state: AuthStateInterface, action): AuthStateInterface => ({
+      ...state,
+      isSubmitting: true,
+      validationErrors: null,
     }),
   ),
 )
