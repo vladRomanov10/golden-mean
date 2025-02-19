@@ -19,7 +19,7 @@ import { Router } from '@angular/router'
 
 @Injectable()
 export class RegisterEffect {
-  register$ = createEffect(() =>
+  private register$ = createEffect(() =>
     this.actions$.pipe(
       ofType(registerAction),
       switchMap(({ request }) => {
