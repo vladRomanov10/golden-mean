@@ -30,16 +30,16 @@ export class LoginEffect {
     ),
   )
 
-  private redirectAfterSubmit$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(loginSuccessAction),
-        tap(() => {
-          this.router.navigateByUrl('/')
-        }),
-      ),
-    { dispatch: false },
-  )
+  // private redirectAfterSubmit$ = createEffect(
+  //   () =>
+  //     this.actions$.pipe(
+  //       ofType(loginSuccessAction),
+  //       tap(() => {
+  //         this.router.navigateByUrl('/')
+  //       }),
+  //     ),
+  //   { dispatch: false },
+  // )
 
   constructor(
     private actions$: Actions,
