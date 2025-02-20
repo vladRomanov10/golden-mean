@@ -9,6 +9,7 @@ import { catchError, of, switchMap, map, tap } from 'rxjs'
 import { AuthService } from 'src/app/auth/services/auth.service'
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface'
 import { Router } from '@angular/router'
+import { HttpErrorResponse } from '@angular/common/http'
 
 @Injectable()
 export class LoginEffect {
@@ -20,7 +21,7 @@ export class LoginEffect {
           map((currentUser: CurrentUserInterface) => {
             return loginSuccessAction({ currentUser })
           }),
-          catchError((errorResponse) => {
+          catchError((errorResponse: HttpErrorResponse) => {
             return of(
               loginFailureAction({ errors: errorResponse.error.errors }),
             )
