@@ -13,6 +13,7 @@ import {
   getCurrentUserFailureAction,
   getCurrentUserSuccessAction,
 } from 'src/app/auth/store/actions/getCurrentUser.action'
+import { PersistenceService } from 'src/app/shared/services/persistence.service'
 
 @Injectable()
 export class GetCurrentUserEffect {
@@ -20,6 +21,10 @@ export class GetCurrentUserEffect {
     this.actions$.pipe(
       ofType(getCurrentUserAction),
       switchMap(() => {
+        const token = this.persistence.getCookie('jwt')
+        if (!token) {
+          return of(getCurrentUserFailureAction())
+        }
         return this.authService.getCurrentUser().pipe(
           map((currentUser: CurrentUserInterface) => {
             return getCurrentUserSuccessAction({ currentUser })
@@ -35,5 +40,6 @@ export class GetCurrentUserEffect {
   constructor(
     private actions$: Actions,
     private authService: AuthService,
+    private persistence: PersistenceService,
   ) {}
 }
