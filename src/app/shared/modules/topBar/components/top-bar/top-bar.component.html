@@ -28,7 +28,14 @@
           </a>
         </li>
       </ng-container>
-      <ng-container> </ng-container>
+      <ng-container *ngIf="isAnonymous$ | async">
+        <li class="nav-item">
+          <a [routerLink]="['/login']" class="nav-link"> Sign In </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/register']" class="nav-link"> Sign Up </a>
+        </li>
+      </ng-container>
     </ul>
   </div>
 </nav>
