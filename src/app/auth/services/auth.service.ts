@@ -18,7 +18,7 @@ export class AuthService {
     const url: string = environment.apiUrl + '/users'
 
     return this.http
-      .post<AuthResponseInterface>(url, data)
+      .post<AuthResponseInterface>(url, data, { withCredentials: true })
       .pipe(map(this.getUser))
   }
 
@@ -26,14 +26,16 @@ export class AuthService {
     const url: string = environment.apiUrl + '/users/login'
 
     return this.http
-      .post<AuthResponseInterface>(url, data)
+      .post<AuthResponseInterface>(url, data, { withCredentials: true })
       .pipe(map(this.getUser))
   }
 
   getCurrentUser(): Observable<CurrentUserInterface> {
     const url: string = environment.apiUrl + '/user'
 
-    return this.http.get<AuthResponseInterface>(url).pipe(map(this.getUser))
+    return this.http
+      .get<AuthResponseInterface>(url, { withCredentials: true })
+      .pipe(map(this.getUser))
   }
 
   private getUser(response: AuthResponseInterface): CurrentUserInterface {
