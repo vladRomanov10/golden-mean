@@ -12,6 +12,8 @@ import { environment } from 'src/environments/environment.prod'
 import { EffectsModule } from '@ngrx/effects'
 import { TopBarModule } from 'src/app/shared/modules/topBar/topBar.module'
 import { AuthInterceptor } from 'src/app/shared/services/authInterceptor.service'
+import { GlobalFeedComponent } from 'src/app/globalFeed/components/globalFeed/globalFeed.component'
+import { GlobalFeedModule } from 'src/app/globalFeed/globalFeed.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +29,7 @@ import { AuthInterceptor } from 'src/app/shared/services/authInterceptor.service
     }),
     EffectsModule.forRoot([]),
     TopBarModule,
+    GlobalFeedModule,
   ],
   providers: [
     {
