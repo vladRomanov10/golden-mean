@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 
 import { StoreModule } from '@ngrx/store'
 
@@ -11,6 +11,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from 'src/environments/environment.prod'
 import { EffectsModule } from '@ngrx/effects'
 import { TopBarModule } from 'src/app/shared/modules/topBar/topBar.module'
+import { AuthInterceptor } from 'src/app/shared/services/authInterceptor.service'
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +28,13 @@ import { TopBarModule } from 'src/app/shared/modules/topBar/topBar.module'
     EffectsModule.forRoot([]),
     TopBarModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
