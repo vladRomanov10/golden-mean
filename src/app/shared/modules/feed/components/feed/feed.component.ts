@@ -1,8 +1,8 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-globalFeed',
-  templateUrl: './globalFeed.component.html',
-  styleUrl: './globalFeed.component.scss',
+  selector: 'app-feed',
+  templateUrl: './feed.component.html',
+  styleUrl: './feed.component.scss',
 })
-export class GlobalFeedComponent {}
+export class FeedComponent {}
