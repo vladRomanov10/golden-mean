@@ -1,8 +1,16 @@
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { GetFeedResponseInterface } from 'src/app/shared/modules/feed/types/getFeedResponse.interface'
+import { environment } from 'src/environments/environment.prod'
+import { HttpClient } from '@angular/common/http'
 
 @Injectable()
 export class FeedService {
-  getFeed(url: string): Observable<GetFeedResponseInterface> {}
+  constructor(private http: HttpClient) {}
+
+  getFeed(url: string): Observable<GetFeedResponseInterface> {
+    const fullUrl = environment.apiUrl + url
+
+    return this.http.get<GetFeedResponseInterface>(fullUrl)
+  }
 }
