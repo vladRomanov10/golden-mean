@@ -1,4 +1,5 @@
-import { ArticleCommentInterface } from 'src/app/shared/types/articleComment.interface'
+import { ArticleCommentInterface } from 'src/app/shared/modules/feed/types/articleComment.interface'
+import { ArticleAuthorInterface } from 'src/app/shared/modules/feed/types/articleAuthor.interface'
 
 export interface ArticleInterface {
   id: number
@@ -9,14 +10,8 @@ export interface ArticleInterface {
   createdAt: string
   updatedAt: string
   tagList: string[]
-  author: {
-    id: 268
-    username: 'henryju'
-    bio: ''
-    image: 'https://static.productionready.io/images/smiley-cyrus.jpg'
-    following: false
-  }
+  author: ArticleAuthorInterface
   favoritesCount: number
-  comments?: ArticleCommentInterface[]
   favorited: boolean
+  comments?: ArticleCommentInterface[]
 }
