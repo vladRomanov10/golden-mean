@@ -13,7 +13,6 @@ import {
   getCurrentUserFailureAction,
   getCurrentUserSuccessAction,
 } from 'src/app/auth/store/actions/getCurrentUser.action'
-import { PersistenceService } from 'src/app/shared/services/persistence.service'
 
 @Injectable()
 export class GetCurrentUserEffect {
@@ -36,6 +35,5 @@ export class GetCurrentUserEffect {
   constructor(
     private actions$: Actions,
     private authService: AuthService,
-    private persistence: PersistenceService,
   ) {}
 }
