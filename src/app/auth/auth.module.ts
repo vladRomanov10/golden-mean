@@ -39,6 +39,7 @@ const routes: Routes = [
       GetCurrentUserEffect,
     ]),
     BackendErrorMessagesModule,
+    BackendErrorMessagesModule,
   ],
   providers: [AuthService, PersistenceService],
 })
