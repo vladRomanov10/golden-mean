@@ -9,9 +9,9 @@ import {
 } from 'src/app/auth/store/selectors'
 
 @Component({
-  selector: 'app-top-bar',
-  templateUrl: './top-bar.component.html',
-  styleUrl: './top-bar.component.scss',
+  selector: 'app-topBar',
+  templateUrl: './topBar.component.html',
+  styleUrl: './topBar.component.scss',
 })
 export class TopBarComponent implements OnInit {
   public isLoggedIn$!: Observable<boolean | null>

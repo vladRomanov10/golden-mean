@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { TopBarComponent } from 'src/app/shared/modules/topBar/components/top-bar/top-bar.component'
+import { TopBarComponent } from 'src/app/shared/modules/topBar/components/topBar/topBar.component'
 import { RouterLink } from '@angular/router'
 
 @NgModule({
