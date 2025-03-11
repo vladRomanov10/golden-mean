@@ -1,9 +1,7 @@
-import { Component, Input } from '@angular/core'
+import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-error-message',
-  template: '<div>{{messageProps}}</div>',
+  selector: 'app-loading',
+  template: '<div>Loading</div>',
 })
-export class ErrorMessageComponent {
-  @Input('message') messageProps: string = 'Something went wrong'
-}
+export class LoadingComponent {}
