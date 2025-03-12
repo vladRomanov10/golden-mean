@@ -21,11 +21,13 @@
       HERE IS LIST OF TAGS
     </a>
   </div>
-  <!--  <app-pagination-->
-  <!--    [total]="(feed$ | async)?.articlesCount"-->
-  <!--    [limit]="limit"-->
-  <!--    [url]="baseUrl"-->
-  <!--    [currentPage]="currentPage"-->
-  <!--  >-->
-  <!--  </app-pagination>-->
+  <ng-container *ngIf="feed$ | async as feed">
+    <app-pagination
+      [total]="feed.articlesCount"
+      [limit]="limit"
+      [url]="baseUrl"
+      [currentPage]="currentPage"
+    >
+    </app-pagination>
+  </ng-container>
 </div>
