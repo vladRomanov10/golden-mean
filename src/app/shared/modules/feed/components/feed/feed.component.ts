@@ -10,6 +10,7 @@ import {
 } from 'src/app/shared/modules/feed/store/selectors'
 import { environment } from 'src/environments/environment'
 import { ActivatedRoute, Params, Router } from '@angular/router'
+import { parseUrl } from 'query-string'
 
 @Component({
   selector: 'app-feed',
@@ -35,7 +36,6 @@ export class FeedComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.fetchData()
     this.initializeValues()
     this.initializeListeners()
   }
@@ -51,7 +51,10 @@ export class FeedComponent implements OnInit, OnDestroy {
     this.baseUrl = this.router.url.split('?')[0]
   }
 
-  private fetchData(): void {
+  private fetchFeed(): void {
+    const offset = this.currentPage * this.limit - this.limit
+    const parsedUrl = parseUrl(this.apiUrlProps)
+    console.log(parsedUrl)
     this.store.dispatch(getFeedAction({ url: this.apiUrlProps }))
   }
 
@@ -59,6 +62,7 @@ export class FeedComponent implements OnInit, OnDestroy {
     this.queryParamsSubscription = this.route.queryParams.subscribe(
       (params: Params) => {
         this.currentPage = Number(params['page'] || '1')
+        this.fetchFeed()
       },
     )
   }
