@@ -5,5 +5,6 @@ import { TagListComponent } from 'src/app/shared/modules/tag-list/components/tag
 @NgModule({
   declarations: [TagListComponent],
   imports: [CommonModule],
+  exports: [TagListComponent],
 })
 export class TagListModule {}
