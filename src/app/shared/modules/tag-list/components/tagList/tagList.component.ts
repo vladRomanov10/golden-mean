@@ -6,5 +6,5 @@ import { PopularTagType } from 'src/app/shared/types/popularTag.type'
   templateUrl: './tagList.component.html',
 })
 export class TagListComponent {
-  @Input('tags') readonly tagsProps!: PopularTagType[]
+  @Input('tags') tagsProps!: PopularTagType[]
 }
