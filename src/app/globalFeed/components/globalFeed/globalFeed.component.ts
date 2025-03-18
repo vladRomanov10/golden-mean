@@ -7,4 +7,5 @@ import { Component } from '@angular/core'
 })
 export class GlobalFeedComponent {
   public apiUrl = '/articles'
+  public tagsApiUrl = '/tags'
 }
