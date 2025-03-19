@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core'
-import { PopularTagType } from 'src/app/shared/types/popularTag.type'
+import { TagType } from 'src/app/shared/types/tag.type'
 
 @Component({
   selector: 'app-tag-list',
   templateUrl: './tagList.component.html',
 })
 export class TagListComponent {
-  @Input('tags') tagsProps!: PopularTagType[]
+  @Input('tags') tagsProps!: TagType[]
 }
