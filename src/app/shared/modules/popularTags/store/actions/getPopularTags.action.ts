@@ -9,7 +9,7 @@ export const getPopularTagsAction = createAction(
 
 export const getPopularTagsSuccessAction = createAction(
   ActionTypes.GET_POPULAR_TAGS_SUCCESS,
-  props<{ data: GetPopularTagsResponseInterface }>(),
+  props<{ popularTags: GetPopularTagsResponseInterface }>(),
 )
 
 export const getPopularTagsFailureAction = createAction(
