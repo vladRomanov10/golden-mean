@@ -3,7 +3,7 @@ import { Observable } from 'rxjs'
 import { GetPopularTagsResponseInterface } from 'src/app/shared/modules/popularTags/types/getPopularTagsResponse.interface'
 import { select, Store } from '@ngrx/store'
 import {
-  dataSelector,
+  popularTagsSelector,
   errorSelector,
   isLoadingSelector,
 } from 'src/app/shared/modules/popularTags/store/selectors'
@@ -19,7 +19,7 @@ export class PopularTagsComponent implements OnInit {
 
   public isLoading$!: Observable<boolean>
   public error$!: Observable<string | null>
-  public data$!: Observable<GetPopularTagsResponseInterface | null>
+  public popularTags$!: Observable<GetPopularTagsResponseInterface | null>
 
   constructor(private store: Store) {}
 
@@ -35,6 +35,6 @@ export class PopularTagsComponent implements OnInit {
   private initializeValues(): void {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector))
     this.error$ = this.store.pipe(select(errorSelector))
-    this.data$ = this.store.pipe(select(dataSelector))
+    this.popularTags$ = this.store.pipe(select(popularTagsSelector))
   }
 }

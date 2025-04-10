@@ -15,7 +15,7 @@ export const errorSelector = createSelector(
   (popularTagsState): string | null => popularTagsState.error,
 )
 
-export const dataSelector = createSelector(
+export const popularTagsSelector = createSelector(
   popularTagsFeatureSelector,
   (popularTagsState): GetPopularTagsResponseInterface | null =>
     popularTagsState.data,
