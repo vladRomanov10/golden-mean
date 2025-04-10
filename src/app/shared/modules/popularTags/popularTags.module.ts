@@ -11,7 +11,7 @@ import { PopularTagsService } from 'src/app/shared/modules/popularTags/services/
   declarations: [PopularTagsComponent],
   imports: [
     CommonModule,
-    StoreModule.forFeature('popularTags', reducers),
+    StoreModule.forFeature('popular tags', reducers),
     EffectsModule.forFeature([GetPopularTagsEffect]),
   ],
   exports: [PopularTagsComponent],
