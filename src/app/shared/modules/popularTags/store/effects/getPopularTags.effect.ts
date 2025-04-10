@@ -6,7 +6,7 @@ import {
   getPopularTagsSuccessAction,
 } from 'src/app/shared/modules/popularTags/store/actions/getPopularTags.action'
 import { catchError, map, of, switchMap } from 'rxjs'
-import { GetPopularTagsService } from 'src/app/shared/modules/popularTags/services/getPopularTags.service'
+import { PopularTagsService } from 'src/app/shared/modules/popularTags/services/popularTags.service'
 import { GetPopularTagsResponseInterface } from 'src/app/shared/modules/popularTags/types/getPopularTagsResponse.interface'
 
 @Injectable()
@@ -29,6 +29,6 @@ export class GetPopularTagsEffect {
 
   constructor(
     private actions$: Actions,
-    private popularTagsService: GetPopularTagsService,
+    private popularTagsService: PopularTagsService,
   ) {}
 }

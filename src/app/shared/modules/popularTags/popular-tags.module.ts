@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store'
 import { reducers } from 'src/app/shared/modules/popularTags/store/reducers'
 import { EffectsModule } from '@ngrx/effects'
 import { GetPopularTagsEffect } from 'src/app/shared/modules/popularTags/store/effects/getPopularTags.effect'
-import { GetPopularTagsService } from 'src/app/shared/modules/popularTags/services/getPopularTags.service'
+import { PopularTagsService } from 'src/app/shared/modules/popularTags/services/popularTags.service'
 
 @NgModule({
   declarations: [PopularTagsComponent],
@@ -15,6 +15,6 @@ import { GetPopularTagsService } from 'src/app/shared/modules/popularTags/servic
     EffectsModule.forFeature([GetPopularTagsEffect]),
   ],
   exports: [PopularTagsComponent],
-  providers: [GetPopularTagsService],
+  providers: [PopularTagsService],
 })
 export class PopularTagsModule {}

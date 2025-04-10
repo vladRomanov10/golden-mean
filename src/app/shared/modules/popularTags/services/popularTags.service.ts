@@ -5,7 +5,7 @@ import { GetPopularTagsResponseInterface } from 'src/app/shared/modules/popularT
 import { environment } from 'src/environments/environment'
 
 @Injectable()
-export class GetPopularTagsService {
+export class PopularTagsService {
   constructor(private http: HttpClient) {}
 
   getPopularTags(url: string): Observable<GetPopularTagsResponseInterface> {
