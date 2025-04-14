@@ -11,6 +11,10 @@ const routes = [
     path: '',
     component: GlobalFeedComponent,
   },
+  {
+    path: 'tags/:tag',
+    component: GlobalFeedComponent,
+  },
 ]
 
 @NgModule({
