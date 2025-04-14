@@ -8,7 +8,7 @@ import { GetPopularTagsEffect } from 'src/app/shared/modules/popularTags/store/e
 import { PopularTagsService } from 'src/app/shared/modules/popularTags/services/popularTags.service'
 import { LoadingModule } from 'src/app/shared/modules/loading/loading.module'
 import { ErrorMessageModule } from 'src/app/shared/modules/errorMessage/errorMessage.module'
-import { RouterLink } from '@angular/router'
+import { RouterModule } from '@angular/router'
 
 @NgModule({
   declarations: [PopularTagsComponent],
@@ -18,7 +18,7 @@ import { RouterLink } from '@angular/router'
     EffectsModule.forFeature([GetPopularTagsEffect]),
     LoadingModule,
     ErrorMessageModule,
-    RouterLink,
+    RouterModule,
   ],
   exports: [PopularTagsComponent],
   providers: [PopularTagsService],
