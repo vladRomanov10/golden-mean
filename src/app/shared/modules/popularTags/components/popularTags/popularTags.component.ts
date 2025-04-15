@@ -24,11 +24,11 @@ export class PopularTagsComponent implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.fetchData()
+    this.fetchPopularTags()
     this.initializeValues()
   }
 
-  private fetchData(): void {
+  private fetchPopularTags(): void {
     this.store.dispatch(getPopularTagsAction({ url: this.tagsApiUrlProps }))
   }
 
