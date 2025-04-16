@@ -21,7 +21,7 @@ export class GetPopularTagsEffect {
             return getPopularTagsSuccessAction({ popularTags })
           }),
           catchError(() => {
-            return of(getPopularTagsFailureAction)
+            return of(getPopularTagsFailureAction())
           }),
         )
       }),

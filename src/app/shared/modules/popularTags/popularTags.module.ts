@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router'
   declarations: [PopularTagsComponent],
   imports: [
     CommonModule,
-    StoreModule.forFeature('popular tags', reducers),
+    StoreModule.forFeature('popularTags', reducers),
     EffectsModule.forFeature([GetPopularTagsEffect]),
     LoadingModule,
     ErrorMessageModule,

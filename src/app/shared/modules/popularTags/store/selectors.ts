@@ -1,22 +1,25 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
 import { PopularTagsStateInterface } from 'src/app/shared/modules/popularTags/types/popularTagsState.interface'
 import { GetPopularTagsResponseInterface } from 'src/app/shared/modules/popularTags/types/getPopularTagsResponse.interface'
+import { TagType } from 'src/app/shared/types/tag.type'
 
 const popularTagsFeatureSelector =
-  createFeatureSelector<PopularTagsStateInterface>('popular tags')
+  createFeatureSelector<PopularTagsStateInterface>('popularTags')
 
 export const isLoadingSelector = createSelector(
   popularTagsFeatureSelector,
-  (popularTagsState): boolean => popularTagsState.isLoading,
+  (popularTagsState: PopularTagsStateInterface): boolean =>
+    popularTagsState.isLoading,
 )
 
 export const errorSelector = createSelector(
   popularTagsFeatureSelector,
-  (popularTagsState): string | null => popularTagsState.error,
+  (popularTagsState: PopularTagsStateInterface): string | null =>
+    popularTagsState.error,
 )
 
 export const popularTagsSelector = createSelector(
   popularTagsFeatureSelector,
-  (popularTagsState): GetPopularTagsResponseInterface | null =>
+  (popularTagsState: PopularTagsStateInterface): TagType[] | null =>
     popularTagsState.data,
 )
