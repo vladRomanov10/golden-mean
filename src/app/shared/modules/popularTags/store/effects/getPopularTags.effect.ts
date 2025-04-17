@@ -7,7 +7,6 @@ import {
 } from 'src/app/shared/modules/popularTags/store/actions/getPopularTags.action'
 import { catchError, map, of, switchMap } from 'rxjs'
 import { PopularTagsService } from 'src/app/shared/modules/popularTags/services/popularTags.service'
-import { GetPopularTagsResponseInterface } from 'src/app/shared/modules/popularTags/types/getPopularTagsResponse.interface'
 import { TagType } from 'src/app/shared/types/tag.type'
 
 @Injectable()
