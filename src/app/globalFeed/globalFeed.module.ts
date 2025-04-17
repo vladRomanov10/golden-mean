@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router'
 import { FeedModule } from 'src/app/shared/modules/feed/feed.module'
 import { BannerModule } from 'src/app/shared/modules/banner/banner.module'
 import { PopularTagsModule } from 'src/app/shared/modules/popularTags/popularTags.module'
+import { FeedTogglerModule } from 'src/app/shared/modules/feedToggler/feedToggler.module'
 
 const routes = [
   {
@@ -25,6 +26,7 @@ const routes = [
     FeedModule,
     BannerModule,
     PopularTagsModule,
+    FeedTogglerModule,
   ],
 })
 export class GlobalFeedModule {}
