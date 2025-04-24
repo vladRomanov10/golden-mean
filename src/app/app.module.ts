@@ -14,6 +14,7 @@ import { TopBarModule } from 'src/app/shared/modules/topBar/topBar.module'
 import { AuthInterceptor } from 'src/app/shared/services/authInterceptor.service'
 import { GlobalFeedModule } from 'src/app/globalFeed/globalFeed.module'
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store'
+import { YourFeedModule } from 'src/app/yourFeed/yourFeed.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +33,7 @@ import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store'
     EffectsModule.forRoot([]),
     TopBarModule,
     GlobalFeedModule,
+    YourFeedModule,
     StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
