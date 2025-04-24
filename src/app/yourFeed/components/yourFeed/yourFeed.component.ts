@@ -1,11 +1,11 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app--global-feed',
-  templateUrl: './globalFeed.component.html',
-  styleUrl: './globalFeed.component.scss',
+  selector: 'app-your-feed',
+  templateUrl: './yourFeed.component.html',
+  styleUrl: './yourFeed.component.scss',
 })
-export class GlobalFeedComponent {
-  public apiUrl = '/articles'
+export class YourFeedComponent {
+  public apiUrl = '/articles/feed'
   public tagsApiUrl = '/tags'
 }
