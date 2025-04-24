@@ -10,7 +10,7 @@ import { YourFeedComponent } from 'src/app/yourFeed/components/yourFeed/yourFeed
 
 const routes = [
   {
-    path: '/feed',
+    path: 'feed',
     component: YourFeedComponent,
   },
 ]
