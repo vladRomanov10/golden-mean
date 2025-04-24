@@ -9,8 +9,8 @@ import { TagType } from 'src/app/shared/types/tag.type'
 export class PopularTagsService {
   constructor(private http: HttpClient) {}
 
-  getPopularTags(url: string): Observable<TagType[]> {
-    const fullUrl = environment.apiUrl + url
+  getPopularTags(): Observable<TagType[]> {
+    const fullUrl = environment.apiUrl + '/tags'
 
     return this.http.get<GetPopularTagsResponseInterface>(fullUrl).pipe(
       map((response: GetPopularTagsResponseInterface) => {

@@ -3,10 +3,7 @@ import { ActionTypes } from 'src/app/shared/modules/popularTags/store/actionType
 import { GetPopularTagsResponseInterface } from 'src/app/shared/modules/popularTags/types/getPopularTagsResponse.interface'
 import { TagType } from 'src/app/shared/types/tag.type'
 
-export const getPopularTagsAction = createAction(
-  ActionTypes.GET_POPULAR_TAGS,
-  props<{ url: string }>(),
-)
+export const getPopularTagsAction = createAction(ActionTypes.GET_POPULAR_TAGS)
 
 export const getPopularTagsSuccessAction = createAction(
   ActionTypes.GET_POPULAR_TAGS_SUCCESS,

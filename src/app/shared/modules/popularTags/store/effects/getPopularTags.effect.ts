@@ -14,8 +14,8 @@ export class GetPopularTagsEffect {
   private getPopularTags$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getPopularTagsAction),
-      switchMap(({ url }) => {
-        return this.popularTagsService.getPopularTags(url).pipe(
+      switchMap(() => {
+        return this.popularTagsService.getPopularTags().pipe(
           map((popularTags: TagType[]) => {
             return getPopularTagsSuccessAction({ popularTags })
           }),
