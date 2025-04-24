@@ -7,5 +7,4 @@ import { Component } from '@angular/core'
 })
 export class YourFeedComponent {
   public apiUrl = '/articles/feed'
-  public tagsApiUrl = '/tags'
 }
