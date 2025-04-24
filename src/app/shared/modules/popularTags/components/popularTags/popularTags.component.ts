@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Observable } from 'rxjs'
 import { select, Store } from '@ngrx/store'
 import {
@@ -14,8 +14,6 @@ import { TagType } from 'src/app/shared/types/tag.type'
   templateUrl: './popularTags.component.html',
 })
 export class PopularTagsComponent implements OnInit {
-  @Input('tagsApiUrl') tagsApiUrlProps!: string
-
   public isLoading$!: Observable<boolean>
   public error$!: Observable<string | null>
   public popularTags$!: Observable<TagType[] | null>
@@ -28,7 +26,7 @@ export class PopularTagsComponent implements OnInit {
   }
 
   private fetchPopularTags(): void {
-    this.store.dispatch(getPopularTagsAction({ url: this.tagsApiUrlProps }))
+    this.store.dispatch(getPopularTagsAction())
   }
 
   private initializeValues(): void {
