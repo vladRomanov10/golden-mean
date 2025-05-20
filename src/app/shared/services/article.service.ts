@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core'
-import { Observable } from 'rxjs'
+import { map, Observable } from 'rxjs'
 import { GetFeedResponseInterface } from 'src/app/shared/modules/feed/types/getFeedResponse.interface'
 import { environment } from 'src/environments/environment'
 import { HttpClient } from '@angular/common/http'
+import { GetArticleResponseInterface } from 'src/app/shared/types/getArticleResponse.interface'
+import { ArticleInterface } from 'src/app/shared/modules/feed/types/article.interface'
 
 @Injectable()
-export class FeedService {
+export class ArticleService {
   constructor(private http: HttpClient) {}
 
-  getFeed(url: string): Observable<GetFeedResponseInterface> {
-    const fullUrl = environment.apiUrl + url
+  getArticle(slug: string): Observable<ArticleInterface> {
+    const fullUrl = `${environment.apiUrl}/articles/${slug}`
 
-    return this.http.get<GetFeedResponseInterface>(fullUrl)
+    return this.http.get<GetArticleResponseInterface>(fullUrl).pipe(
+      map((response: GetArticleResponseInterface) => {
+        return response.article
+      }),
+    )
   }
 }
