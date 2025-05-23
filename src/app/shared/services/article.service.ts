@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core'
 import { map, Observable } from 'rxjs'
-import { GetFeedResponseInterface } from 'src/app/shared/modules/feed/types/getFeedResponse.interface'
 import { environment } from 'src/environments/environment'
 import { HttpClient } from '@angular/common/http'
 import { GetArticleResponseInterface } from 'src/app/shared/types/getArticleResponse.interface'
