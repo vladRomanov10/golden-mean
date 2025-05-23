@@ -21,10 +21,10 @@ import { parseUrl, stringify } from 'query-string'
 
 @Component({
   selector: 'app-feed',
-  templateUrl: './feed.component.html',
-  styleUrl: './feed.component.scss',
+  templateUrl: './article.component.html',
+  styleUrl: './article.component.scss',
 })
-export class FeedComponent implements OnInit, OnDestroy, OnChanges {
+export class ArticleComponent implements OnInit, OnDestroy, OnChanges {
   @Input('apiUrl') apiUrlProps!: string
 
   public isLoading$!: Observable<boolean>
