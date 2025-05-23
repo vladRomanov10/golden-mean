@@ -1,7 +1,7 @@
-import { GetFeedResponseInterface } from 'src/app/shared/modules/feed/types/getFeedResponse.interface'
+import { ArticleInterface } from 'src/app/shared/types/article.interface'
 
-export interface FeedStateInterface {
+export interface ArticleStateInterface {
   isLoading: boolean
   error: string | null
-  data: GetFeedResponseInterface | null
+  data: ArticleInterface | null
 }
