@@ -1,46 +1,45 @@
-import { FeedStateInterface } from 'src/app/shared/modules/feed/types/feedState.interface'
 import { Action, createReducer, on } from '@ngrx/store'
-import {
-  getFeedAction,
-  getFeedFailureAction,
-  getFeedSuccessAction,
-} from 'src/app/shared/modules/feed/store/actions/getFeed.action'
-import { GetFeedResponseInterface } from 'src/app/shared/modules/feed/types/getFeedResponse.interface'
 import { routerNavigationAction } from '@ngrx/router-store'
+import { ArticleStateInterface } from 'src/app/article/types/articleState.interface'
+import {
+  getArticleAction,
+  getArticleFailureAction,
+  getArticleSuccessAction,
+} from 'src/app/article/store/actions/getArticle.action'
 
-const initialState: FeedStateInterface = {
+const initialState: ArticleStateInterface = {
   isLoading: false,
   error: null,
   data: null,
 }
 
-const feedReducer = createReducer(
+const articleReducer = createReducer(
   initialState,
   on(
-    getFeedAction,
-    (state: FeedStateInterface): FeedStateInterface => ({
+    getArticleAction,
+    (state: ArticleStateInterface): ArticleStateInterface => ({
       ...state,
       isLoading: true,
     }),
   ),
   on(
-    getFeedSuccessAction,
-    (state: FeedStateInterface, action): FeedStateInterface => ({
+    getArticleSuccessAction,
+    (state: ArticleStateInterface, action): ArticleStateInterface => ({
       ...state,
       isLoading: false,
-      data: action.feed,
+      data: action.article,
     }),
   ),
   on(
-    getFeedFailureAction,
-    (state: FeedStateInterface): FeedStateInterface => ({
+    getArticleFailureAction,
+    (state: ArticleStateInterface): ArticleStateInterface => ({
       ...state,
       isLoading: false,
     }),
   ),
-  on(routerNavigationAction, (): FeedStateInterface => initialState),
+  on(routerNavigationAction, (): ArticleStateInterface => initialState),
 )
 
-export function reducers(state: FeedStateInterface, action: Action) {
-  return feedReducer(state, action)
+export function reducers(state: ArticleStateInterface, action: Action) {
+  return articleReducer(state, action)
 }

@@ -1,13 +1,15 @@
 import { createAction, props } from '@ngrx/store'
-import { ActionTypes } from 'src/app/shared/modules/feed/store/actionTypes'
-import { GetFeedResponseInterface } from 'src/app/shared/modules/feed/types/getFeedResponse.interface'
+import { ActionTypes } from 'src/app/article/store/actionTypes'
+import { ArticleInterface } from 'src/app/shared/types/article.interface'
 
-export const getFeedAction = createAction(
-  ActionTypes.GET_FEED,
-  props<{ url: string }>(),
+export const getArticleAction = createAction(
+  ActionTypes.GET_ARTICLE,
+  props<{ slug: string }>(),
 )
-export const getFeedSuccessAction = createAction(
-  ActionTypes.GET_FEED_SUCCESS,
-  props<{ feed: GetFeedResponseInterface }>(),
+export const getArticleSuccessAction = createAction(
+  ActionTypes.GET_ARTICLE_SUCCESS,
+  props<{ article: ArticleInterface }>(),
 )
-export const getFeedFailureAction = createAction(ActionTypes.GET_FEED_FAILURE)
+export const getArticleFailureAction = createAction(
+  ActionTypes.GET_ARTICLE_FAILURE,
+)
