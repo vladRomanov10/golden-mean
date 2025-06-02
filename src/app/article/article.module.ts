@@ -9,6 +9,8 @@ import { LoadingModule } from 'src/app/shared/modules/loading/loading.module'
 import { ArticleComponent } from 'src/app/article/components/article/article.component'
 import { ArticleService as SharedArticleService } from 'src/app/shared/services/article.service'
 import { GetArticleEffect } from 'src/app/article/store/effects/getArticle.effect'
+import { BackendErrorMessagesModule } from 'src/app/shared/modules/backendErrorMessages/backendErrorMessages.module'
+import { TagListModule } from 'src/app/shared/modules/tagList/tagList.module'
 
 const routes = [
   {
@@ -27,6 +29,8 @@ const routes = [
     ErrorMessageModule,
     LoadingModule,
     RouterModule.forChild(routes),
+    BackendErrorMessagesModule,
+    TagListModule,
   ],
   providers: [SharedArticleService],
 })
