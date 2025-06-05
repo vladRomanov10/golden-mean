@@ -1,37 +1,46 @@
 import { Injectable } from '@angular/core'
-
 import { createEffect, Actions, ofType } from '@ngrx/effects'
-
-import { catchError, map, of, switchMap } from 'rxjs'
-
-import { ArticleService as SharedArticleService } from 'src/app/shared/services/article.service'
+import { catchError, map, of, switchMap, tap } from 'rxjs'
+import { ArticleService } from 'src/app/article/services/article.service'
 import {
-  getArticleAction,
-  getArticleFailureAction,
-  getArticleSuccessAction,
-} from 'src/app/article/store/actions/getArticle.action'
-import { ArticleInterface } from 'src/app/shared/types/article.interface'
+  deleteArticleAction,
+  deleteArticleFailureAction,
+  deleteArticleSuccessAction,
+} from 'src/app/article/store/actions/deleteArticle.action'
+import { Router } from '@angular/router'
 
 @Injectable()
-export class GetArticleEffect {
-  private getArticle$ = createEffect(() =>
+export class DeleteArticleEffect {
+  private deleteArticle$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(getArticleAction),
+      ofType(deleteArticleAction),
       switchMap(({ slug }) => {
-        return this.articleService.getArticle(slug).pipe(
-          map((article: ArticleInterface) => {
-            return getArticleSuccessAction({ article })
+        return this.articleService.deleteArticle(slug).pipe(
+          map(() => {
+            return deleteArticleSuccessAction()
           }),
           catchError(() => {
-            return of(getArticleFailureAction())
+            return of(deleteArticleFailureAction())
           }),
         )
       }),
     ),
   )
 
+  private redirectAfterDelete$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(deleteArticleSuccessAction),
+        tap(() => {
+          this.router.navigateByUrl('/')
+        }),
+      ),
+    { dispatch: false },
+  )
+
   constructor(
     private actions$: Actions,
-    private articleService: SharedArticleService,
+    private articleService: ArticleService,
+    private router: Router,
   ) {}
 }
