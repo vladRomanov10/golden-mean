@@ -32,9 +32,10 @@ const articleReducer = createReducer(
   ),
   on(
     getArticleFailureAction,
-    (state: ArticleStateInterface): ArticleStateInterface => ({
+    (state: ArticleStateInterface, action): ArticleStateInterface => ({
       ...state,
       isLoading: false,
+      error: action.errors,
     }),
   ),
   on(routerNavigationAction, (): ArticleStateInterface => initialState),
