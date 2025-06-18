@@ -34,7 +34,10 @@
   </div>
   <div class="container page">
     <app-loading *ngIf="isLoading$ | async"></app-loading>
-    <app-backendErrorMessages *ngIf="error$ | async"></app-backendErrorMessages>
+    <app-backendErrorMessages
+      *ngIf="error$ | async as backendErrors"
+      [backendErrors]="backendErrors"
+    ></app-backendErrorMessages>
 
     <div class="row article-content" *ngIf="article">
       <div class="col-xs-12">
