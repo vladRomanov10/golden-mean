@@ -12,6 +12,7 @@ import {
 import { currentUserSelector } from 'src/app/auth/store/selectors'
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface'
 import { deleteArticleAction } from 'src/app/article/store/actions/deleteArticle.action'
+import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface'
 
 @Component({
   selector: 'app-article',
@@ -21,7 +22,7 @@ import { deleteArticleAction } from 'src/app/article/store/actions/deleteArticle
 export class ArticleComponent implements OnInit, OnDestroy {
   public article!: ArticleInterface | null
   public isLoading$!: Observable<boolean>
-  public error$!: Observable<string | null>
+  public error$!: Observable<BackendErrorsInterface | null>
   public isAuthor$!: Observable<boolean>
   private slug!: string | null
 
