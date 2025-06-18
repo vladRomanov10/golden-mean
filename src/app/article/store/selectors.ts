@@ -1,6 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
 import { ArticleStateInterface } from 'src/app/article/types/articleState.interface'
 import { ArticleInterface } from 'src/app/shared/types/article.interface'
+import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface'
 
 const articleFeatureSelector =
   createFeatureSelector<ArticleStateInterface>('article')
@@ -12,7 +13,8 @@ export const isLoadingSelector = createSelector(
 
 export const errorSelector = createSelector(
   articleFeatureSelector,
-  (articleState: ArticleStateInterface): string | null => articleState.error,
+  (articleState: ArticleStateInterface): BackendErrorsInterface | null =>
+    articleState.error,
 )
 
 export const articleSelector = createSelector(
