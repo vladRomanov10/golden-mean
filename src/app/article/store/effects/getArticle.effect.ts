@@ -11,6 +11,7 @@ import {
   getArticleSuccessAction,
 } from 'src/app/article/store/actions/getArticle.action'
 import { ArticleInterface } from 'src/app/shared/types/article.interface'
+import { HttpErrorResponse } from '@angular/common/http'
 
 @Injectable()
 export class GetArticleEffect {
@@ -22,8 +23,8 @@ export class GetArticleEffect {
           map((article: ArticleInterface) => {
             return getArticleSuccessAction({ article })
           }),
-          catchError(() => {
-            return of(getArticleFailureAction())
+          catchError((errorResponse: HttpErrorResponse) => {
+            return of(getArticleFailureAction({ errors: errorResponse.error }))
           }),
         )
       }),
