@@ -15,7 +15,7 @@ export class ArticleFormComponent implements OnInit {
   @Output('articleSubmit') articleSubmitEvent =
     new EventEmitter<ArticleInputInterface>()
 
-  private form!: FormGroup
+  form!: FormGroup
 
   constructor(private fb: FormBuilder) {}
 
@@ -23,16 +23,16 @@ export class ArticleFormComponent implements OnInit {
     this.initializeForm()
   }
 
-  private onSubmit(): void {
+  onSubmit(): void {
     this.articleSubmitEvent.emit(this.form.value)
   }
 
   private initializeForm(): void {
     this.form = this.fb.group({
-      title: '',
-      description: '',
-      body: '',
-      tagList: '',
+      title: this.initialValuesProps.title,
+      description: this.initialValuesProps.description,
+      body: this.initialValuesProps.body,
+      tagList: this.initialValuesProps.tagList.join(' '),
     })
   }
 }
