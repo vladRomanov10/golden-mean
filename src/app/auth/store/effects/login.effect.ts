@@ -7,7 +7,7 @@ import {
 } from 'src/app/auth/store/actions/login.action'
 import { catchError, of, switchMap, map, tap } from 'rxjs'
 import { AuthService } from 'src/app/auth/services/auth.service'
-import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface'
+import { CurrentUserInterface } from 'src/app/shared/types/interfaces/currentUser.interface'
 import { Router } from '@angular/router'
 import { HttpErrorResponse } from '@angular/common/http'
 

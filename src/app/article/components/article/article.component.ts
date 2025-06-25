@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
 import { ActivatedRoute } from '@angular/router'
 import { getArticleAction } from 'src/app/article/store/actions/getArticle.action'
-import { ArticleInterface } from 'src/app/shared/types/article.interface'
+import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
 import { combineLatestWith, map, Observable, Subscription } from 'rxjs'
 import {
   articleSelector,
@@ -10,9 +10,9 @@ import {
   isLoadingSelector,
 } from 'src/app/article/store/selectors'
 import { currentUserSelector } from 'src/app/auth/store/selectors'
-import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface'
+import { CurrentUserInterface } from 'src/app/shared/types/interfaces/currentUser.interface'
 import { deleteArticleAction } from 'src/app/article/store/actions/deleteArticle.action'
-import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface'
+import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendErrors.interface'
 
 @Component({
   selector: 'app-article',

@@ -8,7 +8,7 @@ import {
   validationErrorsSelector,
 } from 'src/app/auth/store/selectors'
 
-import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface'
+import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendErrors.interface'
 import { LoginRequestInterface } from 'src/app/auth/types/loginRequest.interface'
 import { loginAction } from 'src/app/auth/store/actions/login.action'
 

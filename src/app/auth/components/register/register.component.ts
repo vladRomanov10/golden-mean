@@ -9,7 +9,7 @@ import {
   validationErrorsSelector,
 } from 'src/app/auth/store/selectors'
 import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface'
-import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface'
+import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendErrors.interface'
 
 @Component({
   selector: 'gm-register',

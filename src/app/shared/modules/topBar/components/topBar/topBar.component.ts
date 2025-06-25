@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Observable } from 'rxjs'
-import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface'
+import { CurrentUserInterface } from 'src/app/shared/types/interfaces/currentUser.interface'
 import { select, Store } from '@ngrx/store'
 import {
   currentUserSelector,

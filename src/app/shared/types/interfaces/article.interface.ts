@@ -1,5 +1,5 @@
-import { ArticleCommentInterface } from 'src/app/shared/types/articleComment.interface'
-import { ArticleAuthorInterface } from 'src/app/shared/types/articleAuthor.interface'
+import { ArticleCommentInterface } from 'src/app/shared/types/interfaces/articleComment.interface'
+import { ArticleAuthorInterface } from 'src/app/shared/types/interfaces/articleAuthor.interface'
 
 export interface ArticleInterface {
   id: number

@@ -7,7 +7,7 @@ import {
   isLoadingSelector,
 } from 'src/app/shared/modules/popularTags/store/selectors'
 import { getPopularTagsAction } from 'src/app/shared/modules/popularTags/store/actions/getPopularTags.action'
-import { TagType } from 'src/app/shared/types/tag.type'
+import { TagType } from 'src/app/shared/types/interfaces/tag.type'
 
 @Component({
   selector: 'app-popular-tags',

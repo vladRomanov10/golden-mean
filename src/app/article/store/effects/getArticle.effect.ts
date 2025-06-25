@@ -10,7 +10,7 @@ import {
   getArticleFailureAction,
   getArticleSuccessAction,
 } from 'src/app/article/store/actions/getArticle.action'
-import { ArticleInterface } from 'src/app/shared/types/article.interface'
+import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
 import { HttpErrorResponse } from '@angular/common/http'
 
 @Injectable()

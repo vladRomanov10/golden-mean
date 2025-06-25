@@ -1,5 +1,5 @@
-import { ArticleInterface } from 'src/app/shared/types/article.interface'
-import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface'
+import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
+import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendErrors.interface'
 
 export interface ArticleStateInterface {
   isLoading: boolean

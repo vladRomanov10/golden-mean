@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { map, Observable } from 'rxjs'
 import { GetPopularTagsResponseInterface } from 'src/app/shared/modules/popularTags/types/getPopularTagsResponse.interface'
 import { environment } from 'src/environments/environment'
-import { TagType } from 'src/app/shared/types/tag.type'
+import { TagType } from 'src/app/shared/types/interfaces/tag.type'
 
 @Injectable()
 export class PopularTagsService {

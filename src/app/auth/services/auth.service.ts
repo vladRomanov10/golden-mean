@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'
 import { map, Observable, tap } from 'rxjs'
 
 import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface'
-import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface'
+import { CurrentUserInterface } from 'src/app/shared/types/interfaces/currentUser.interface'
 import { AuthResponseInterface } from 'src/app/auth/types/authResponse.interface'
 import { environment } from 'src/environments/environment'
 

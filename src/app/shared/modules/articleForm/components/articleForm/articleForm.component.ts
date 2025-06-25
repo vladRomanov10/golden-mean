@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
-import { ArticleInputInterface } from 'src/app/shared/types/articleInput.interface'
-import { BackendErrorsInterface } from 'src/app/shared/types/backendErrors.interface'
+import { ArticleInputInterface } from 'src/app/shared/types/interfaces/articleInput.interface'
+import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendErrors.interface'
 import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
@@ -15,7 +15,7 @@ export class ArticleFormComponent implements OnInit {
   @Output('articleSubmit') articleSubmitEvent =
     new EventEmitter<ArticleInputInterface>()
 
-  form!: FormGroup
+  public form!: FormGroup
 
   constructor(private fb: FormBuilder) {}
 
