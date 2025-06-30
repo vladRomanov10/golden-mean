@@ -1,30 +1,36 @@
 import { Injectable } from '@angular/core'
-import { Actions, createEffect, ofType } from '@ngrx/effects'
-import {
-  loginAction,
-  loginFailureAction,
-  loginSuccessAction,
-} from 'src/app/auth/store/actions/login.action'
-import { catchError, of, switchMap, map, tap } from 'rxjs'
-import { AuthService } from 'src/app/auth/services/auth.service'
-import { CurrentUserInterface } from 'src/app/shared/types/interfaces/currentUser.interface'
 import { Router } from '@angular/router'
 import { HttpErrorResponse } from '@angular/common/http'
+
+import { Actions, createEffect, ofType } from '@ngrx/effects'
+
+import { catchError, of, switchMap, map, tap } from 'rxjs'
+
 import { CreateArticleService } from 'src/app/createArticle/services/createArticle.service'
 
+import {
+  createArticleAction,
+  createArticleFailureAction,
+  createArticleSuccessAction,
+} from 'src/app/createArticle/store/actions/createArticle.action'
+
+import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
+
 @Injectable()
-export class LoginEffect {
-  private login$ = createEffect(() =>
+export class CreateArticleEffect {
+  private readonly createArticle$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loginAction),
-      switchMap(({ request }) => {
-        return this.authService.login(request).pipe(
-          map((currentUser: CurrentUserInterface) => {
-            return loginSuccessAction({ currentUser })
+      ofType(createArticleAction),
+      switchMap(({ articleInput }) => {
+        return this.createArticleService.createArticle(articleInput).pipe(
+          map((article: ArticleInterface) => {
+            return createArticleSuccessAction({ article })
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             return of(
-              loginFailureAction({ errors: errorResponse.error.errors }),
+              createArticleFailureAction({
+                errors: errorResponse.error.errors,
+              }),
             )
           }),
         )
@@ -32,12 +38,12 @@ export class LoginEffect {
     ),
   )
 
-  private redirectAfterSubmit$ = createEffect(
+  private readonly redirectAfterCreate$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(loginSuccessAction),
-        tap(() => {
-          this.router.navigateByUrl('/')
+        ofType(createArticleSuccessAction),
+        tap(({ article }) => {
+          this.router.navigate(['/article', article.slug])
         }),
       ),
     { dispatch: false },
