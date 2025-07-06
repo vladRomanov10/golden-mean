@@ -29,7 +29,7 @@ export class CreateArticleEffect {
           catchError((errorResponse: HttpErrorResponse) => {
             return of(
               createArticleFailureAction({
-                errors: errorResponse.error.errors,
+                errors: errorResponse.error,
               }),
             )
           }),
