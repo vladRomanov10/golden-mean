@@ -1,6 +1,6 @@
-<p>create-article works!</p>
 <app-article-form
   [initialValues]="initialValues"
-  [isSubmitting]="false"
+  [isSubmitting]="(isSubmitting$ | async) ?? false"
+  [errors]="backendErrors$ | async"
   (articleSubmit)="onSubmit($event)"
 ></app-article-form>
