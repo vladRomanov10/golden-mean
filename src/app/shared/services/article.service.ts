@@ -3,7 +3,7 @@ import { map, Observable } from 'rxjs'
 import { environment } from 'src/environments/environment'
 import { HttpClient } from '@angular/common/http'
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
-import { GetArticleResponseInterface } from 'src/app/shared/types/aliases/ArticleResponse.aliases'
+import { GetArticleResponseInterface } from 'src/app/shared/types/aliases/articleResponse.aliases'
 
 @Injectable()
 export class ArticleService {
