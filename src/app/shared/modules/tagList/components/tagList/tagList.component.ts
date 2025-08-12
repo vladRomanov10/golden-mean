@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { TagType } from 'src/app/shared/types/interfaces/tag.type'
+import { TagType } from 'src/app/shared/types/aliases/tag.type'
 
 @Component({
   selector: 'app-tag-list',

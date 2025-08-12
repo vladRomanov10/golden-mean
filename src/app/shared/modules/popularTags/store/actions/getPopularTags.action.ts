@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store'
 import { ActionTypes } from 'src/app/shared/modules/popularTags/store/actionTypes'
 import { GetPopularTagsResponseInterface } from 'src/app/shared/modules/popularTags/types/getPopularTagsResponse.interface'
-import { TagType } from 'src/app/shared/types/interfaces/tag.type'
+import { TagType } from 'src/app/shared/types/aliases/tag.type'
 
 export const getPopularTagsAction = createAction(ActionTypes.GET_POPULAR_TAGS)
 
