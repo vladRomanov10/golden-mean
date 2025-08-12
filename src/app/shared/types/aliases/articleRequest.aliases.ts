@@ -1,3 +1,3 @@
-import { ArticlePayloadInterface } from 'src/app/shared/types/interfaces/articlePayload.interface'
+import { ArticleRequestInterface } from 'src/app/shared/types/interfaces/articleRequest.interface'
 
-export type CreateArticleRequest = ArticlePayloadInterface
+export type PostArticleRequestInterface = ArticleRequestInterface

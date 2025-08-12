@@ -15,7 +15,7 @@ import {
 } from 'src/app/createArticle/store/actions/createArticle.action'
 
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
-import { CreateArticleRequest } from 'src/app/shared/types/aliases/articleRequest.aliases'
+import { PostArticleRequestInterface } from 'src/app/shared/types/aliases/articleRequest.aliases'
 
 @Injectable()
 export class CreateArticleEffect {
@@ -23,7 +23,7 @@ export class CreateArticleEffect {
     this.actions$.pipe(
       ofType(createArticleAction),
       switchMap(({ articleInput }) => {
-        const articlePostRequest: CreateArticleRequest = {
+        const articlePostRequest: PostArticleRequestInterface = {
           article: articleInput,
         }
         return this.createArticleService.createArticle(articlePostRequest).pipe(

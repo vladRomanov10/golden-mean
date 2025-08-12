@@ -1,5 +1,5 @@
 import { ArticleInputInterface } from 'src/app/shared/types/interfaces/articleInput.interface'
 
-export interface ArticlePayloadInterface {
+export interface ArticleRequestInterface {
   article: ArticleInputInterface
 }
