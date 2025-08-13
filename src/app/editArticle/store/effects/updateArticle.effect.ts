@@ -6,38 +6,38 @@ import { Actions, createEffect, ofType } from '@ngrx/effects'
 
 import { catchError, of, switchMap, map, tap } from 'rxjs'
 
-import { CreateArticleService } from 'src/app/createArticle/services/createArticle.service'
-
-import {
-  createArticleAction,
-  createArticleFailureAction,
-  createArticleSuccessAction,
-} from 'src/app/createArticle/store/actions/createArticle.action'
-
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
-import { PostArticleRequestInterface } from 'src/app/shared/types/aliases/articleRequest.aliases'
+import { PutArticleRequestInterface } from 'src/app/shared/types/aliases/articleRequest.aliases'
+import { EditArticleService } from 'src/app/editArticle/services/editArticle.service'
+import {
+  updateArticleAction,
+  updateArticleFailureAction,
+  updateArticleSuccessAction,
+} from 'src/app/editArticle/store/actions/updateArticle.action'
 
 @Injectable()
-export class CreateArticleEffect {
-  private readonly createArticle$ = createEffect(() =>
+export class UpdateArticleEffect {
+  private readonly updateArticle$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(createArticleAction),
-      switchMap(({ articleInput }) => {
-        const articlePostRequest: PostArticleRequestInterface = {
+      ofType(updateArticleAction),
+      switchMap(({ slug, articleInput }) => {
+        const articlePutRequest: PutArticleRequestInterface = {
           article: articleInput,
         }
-        return this.createArticleService.createArticle(articlePostRequest).pipe(
-          map((article: ArticleInterface) => {
-            return createArticleSuccessAction({ article })
-          }),
-          catchError((errorResponse: HttpErrorResponse) => {
-            return of(
-              createArticleFailureAction({
-                errors: errorResponse.error,
-              }),
-            )
-          }),
-        )
+        return this.editArticleService
+          .updateArticle(slug, articlePutRequest)
+          .pipe(
+            map((article: ArticleInterface) => {
+              return updateArticleSuccessAction({ article })
+            }),
+            catchError((errorResponse: HttpErrorResponse) => {
+              return of(
+                updateArticleFailureAction({
+                  errors: errorResponse.error,
+                }),
+              )
+            }),
+          )
       }),
     ),
   )
@@ -45,7 +45,7 @@ export class CreateArticleEffect {
   private readonly redirectAfterCreate$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(createArticleSuccessAction),
+        ofType(updateArticleSuccessAction),
         tap(({ article }) => {
           this.router.navigate(['/articles', article.slug])
         }),
@@ -55,7 +55,7 @@ export class CreateArticleEffect {
 
   constructor(
     private actions$: Actions,
-    private createArticleService: CreateArticleService,
+    private editArticleService: EditArticleService,
     private router: Router,
   ) {}
 }
