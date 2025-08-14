@@ -1,19 +1,32 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
-import { CreateArticleStateInterface } from 'src/app/createArticle/types/createArticleState.interface'
 import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendErrors.interface'
+import { EditArticleStateInterface } from 'src/app/editArticle/types/editArticleState.interface'
+import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
 
-export const createArticleFeatureSelector =
-  createFeatureSelector<CreateArticleStateInterface>('createArticle')
+export const editArticleFeatureSelector =
+  createFeatureSelector<EditArticleStateInterface>('editArticle')
 
 export const isSubmittingSelector = createSelector(
-  createArticleFeatureSelector,
-  (createArticleState: CreateArticleStateInterface): boolean =>
-    createArticleState.isSubmitting,
+  editArticleFeatureSelector,
+  (editArticleState: EditArticleStateInterface): boolean =>
+    editArticleState.isSubmitting,
 )
 
 export const validationErrorsSelector = createSelector(
-  createArticleFeatureSelector,
+  editArticleFeatureSelector,
   (
-    createArticleState: CreateArticleStateInterface,
-  ): BackendErrorsInterface | null => createArticleState.validationErrors,
+    editArticleState: EditArticleStateInterface,
+  ): BackendErrorsInterface | null => editArticleState.validationErrors,
+)
+
+export const isLoadingSelector = createSelector(
+  editArticleFeatureSelector,
+  (editArticleState: EditArticleStateInterface): boolean =>
+    editArticleState.isLoading,
+)
+
+export const articleSelector = createSelector(
+  editArticleFeatureSelector,
+  (editArticleState: EditArticleStateInterface): ArticleInterface | null =>
+    editArticleState.article,
 )
