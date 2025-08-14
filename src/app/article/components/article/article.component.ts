@@ -24,12 +24,12 @@ export class ArticleComponent implements OnInit, OnDestroy {
   public isLoading$!: Observable<boolean>
   public error$!: Observable<BackendErrorsInterface | null>
   public isAuthor$!: Observable<boolean>
-  private slug!: string | null
 
   public articleSelector$!: Observable<ArticleInterface | null>
   public currentUserSelector$!: Observable<CurrentUserInterface | null>
 
   private articleSubscription!: Subscription
+  private slug!: string | null
 
   constructor(
     private store: Store,
