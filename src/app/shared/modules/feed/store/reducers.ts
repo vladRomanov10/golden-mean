@@ -5,7 +5,6 @@ import {
   getFeedFailureAction,
   getFeedSuccessAction,
 } from 'src/app/shared/modules/feed/store/actions/getFeed.action'
-import { GetFeedResponseInterface } from 'src/app/shared/modules/feed/types/getFeedResponse.interface'
 import { routerNavigationAction } from '@ngrx/router-store'
 
 const initialState: FeedStateInterface = {
