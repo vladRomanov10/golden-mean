@@ -10,6 +10,7 @@ import {
   getArticleFailureAction,
   getArticleSuccessAction,
 } from 'src/app/editArticle/store/actions/getArticle.action'
+import { routerNavigationAction } from '@ngrx/router-store'
 
 const initialState: EditArticleStateInterface = {
   isLoading: false,
@@ -64,6 +65,7 @@ const editArticleReducer = createReducer(
       isLoading: false,
     }),
   ),
+  on(routerNavigationAction, (): EditArticleStateInterface => initialState),
 )
 
 export function reducers(state: EditArticleStateInterface, action: Action) {
