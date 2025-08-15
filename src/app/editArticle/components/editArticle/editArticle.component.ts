@@ -3,7 +3,6 @@ import { ArticleInputInterface } from 'src/app/shared/types/interfaces/articleIn
 import { filter, map, Observable } from 'rxjs'
 import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendErrors.interface'
 import { select, Store } from '@ngrx/store'
-import { createArticleAction } from 'src/app/createArticle/store/actions/createArticle.action'
 import { ActivatedRoute } from '@angular/router'
 import { getArticleAction } from 'src/app/editArticle/store/actions/getArticle.action'
 import {
@@ -13,18 +12,13 @@ import {
   validationErrorsSelector,
 } from 'src/app/editArticle/store/selectors'
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
+import { updateArticleAction } from 'src/app/editArticle/store/actions/updateArticle.action'
 
 @Component({
   selector: 'app-edit-article',
   templateUrl: './editArticle.component.html',
 })
 export class EditArticleComponent implements OnInit {
-  // readonly initialValues: ArticleInputInterface = {
-  //   title: '',
-  //   description: '',
-  //   body: '',
-  //   tagList: [],
-  // }
   public isSubmitting$!: Observable<boolean>
   public backendErrors$!: Observable<BackendErrorsInterface | null>
   public isLoading$!: Observable<boolean>
@@ -43,7 +37,9 @@ export class EditArticleComponent implements OnInit {
   }
 
   onSubmit(articleInput: ArticleInputInterface): void {
-    this.store.dispatch(createArticleAction({ articleInput }))
+    this.store.dispatch(
+      updateArticleAction({ slug: `${this.slug}`, articleInput }),
+    )
   }
 
   private initializeValues(): void {
