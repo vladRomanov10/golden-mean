@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router'
 import { StoreModule } from '@ngrx/store'
 import { reducers } from 'src/app/settings/store/reducers'
 import { ReactiveFormsModule } from '@angular/forms'
+import { BackendErrorMessagesModule } from 'src/app/shared/modules/backendErrorMessages/backendErrorMessages.module'
 
 const routes = [{ path: 'settings', component: SettingsComponent }]
 
@@ -15,6 +16,7 @@ const routes = [{ path: 'settings', component: SettingsComponent }]
     RouterModule.forChild(routes),
     StoreModule.forFeature('settings', reducers),
     ReactiveFormsModule,
+    BackendErrorMessagesModule,
   ],
 })
 export class SettingsModule {}
