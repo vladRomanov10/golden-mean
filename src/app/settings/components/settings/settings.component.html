@@ -1,1 +1,15 @@
-<p>settings works!</p>
+@if (currentUser) {
+  <div class="container page">
+    <div class="row">
+      <div class="col-lg-6 offset-md-3 col-xs-12">
+        <h1 class="text-xs-center">Your Settings</h1>
+        @if (backendErrors$ | async; as backendErrors) {
+          <app-backendErrorMessages
+            [backendErrors]="backendErrors"
+          ></app-backendErrorMessages>
+        }
+        <form [formGroup]="form"></form>
+      </div>
+    </div>
+  </div>
+}
