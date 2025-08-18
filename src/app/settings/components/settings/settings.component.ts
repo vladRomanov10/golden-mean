@@ -17,10 +17,10 @@ import { currentUserSelector } from 'src/app/auth/store/selectors'
 export class SettingsComponent implements OnInit, OnDestroy {
   public isSubmitting$!: Observable<boolean>
   public backendErrors$!: Observable<BackendErrorsInterface | null>
+  public currentUser!: CurrentUserInterface
+  public form!: FormGroup
 
-  private currentUser!: CurrentUserInterface
   private currentUserSubscription!: Subscription
-  private form!: FormGroup
 
   constructor(
     private fb: FormBuilder,
