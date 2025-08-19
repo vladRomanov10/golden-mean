@@ -9,6 +9,8 @@ import {
   validationErrorsSelector,
 } from 'src/app/settings/store/selectors'
 import { currentUserSelector } from 'src/app/auth/store/selectors'
+import { CurrentUserInputInterface } from 'src/app/shared/types/interfaces/currentUserInput.interface'
+import { updateCurrentUserAction } from 'src/app/auth/store/actions/updateCurrentUser.action'
 
 @Component({
   selector: 'app-settings',
@@ -35,6 +37,16 @@ export class SettingsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.currentUserSubscription.unsubscribe()
   }
+
+  submit(): void {
+    const currentUserInput: CurrentUserInputInterface = {
+      ...this.form.value,
+    }
+
+    this.store.dispatch(updateCurrentUserAction({ currentUserInput }))
+  }
+
+  logout(): void {}
 
   private initializeValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
