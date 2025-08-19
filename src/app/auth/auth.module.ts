@@ -10,7 +10,6 @@ import { AuthService } from 'src/app/auth/services/auth.service'
 import { EffectsModule } from '@ngrx/effects'
 import { RegisterEffect } from 'src/app/auth/store/effects/register.effect'
 import { BackendErrorMessagesModule } from 'src/app/shared/modules/backendErrorMessages/backendErrorMessages.module'
-import { PersistenceService } from 'src/app/shared/services/persistence.service'
 import { LoginComponent } from './components/login/login.component'
 import { LoginEffect } from 'src/app/auth/store/effects/login.effect'
 import { GetCurrentUserEffect } from 'src/app/auth/store/effects/getCurrentUser.effect'
@@ -42,6 +41,6 @@ const routes: Routes = [
     ]),
     BackendErrorMessagesModule,
   ],
-  providers: [AuthService, PersistenceService],
+  providers: [AuthService],
 })
 export class AuthModule {}
