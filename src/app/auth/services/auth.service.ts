@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment'
 import { HttpClient } from '@angular/common/http'
 import { LoginRequestInterface } from 'src/app/auth/types/loginRequest.interface'
 import { CurrentUserInputInterface } from 'src/app/shared/types/interfaces/currentUserInput.interface'
+import { LogoutResponseInterface } from 'src/app/auth/types/logoutResponse.interface'
 
 @Injectable()
 export class AuthService {
@@ -29,6 +30,12 @@ export class AuthService {
     return this.http
       .post<AuthResponseInterface>(url, data)
       .pipe(map(this.getUser))
+  }
+
+  logout(): Observable<LogoutResponseInterface> {
+    const url: string = environment.apiUrl + '/users/logout'
+
+    return this.http.post<LogoutResponseInterface>(url, null)
   }
 
   getCurrentUser(): Observable<CurrentUserInterface> {
