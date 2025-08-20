@@ -17,6 +17,7 @@ import {
 } from 'src/app/auth/store/actions/getCurrentUser.action'
 import { state } from '@angular/animations'
 import { updateCurrentUserSuccessAction } from 'src/app/auth/store/actions/updateCurrentUser.action'
+import { logoutSuccessAction } from 'src/app/auth/store/actions/logout.action'
 
 const initialState: AuthStateInterface = {
   isSubmitting: false,
@@ -108,6 +109,14 @@ const authReducer = createReducer(
     (state: AuthStateInterface, action): AuthStateInterface => ({
       ...state,
       currentUser: action.currentUser,
+    }),
+  ),
+  on(
+    logoutSuccessAction,
+    (state: AuthStateInterface): AuthStateInterface => ({
+      ...state,
+      currentUser: null,
+      isLoggedIn: false,
     }),
   ),
 )
