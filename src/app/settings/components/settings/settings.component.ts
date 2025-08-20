@@ -11,6 +11,7 @@ import {
 import { currentUserSelector } from 'src/app/auth/store/selectors'
 import { CurrentUserInputInterface } from 'src/app/shared/types/interfaces/currentUserInput.interface'
 import { updateCurrentUserAction } from 'src/app/auth/store/actions/updateCurrentUser.action'
+import { logoutAction } from 'src/app/auth/store/actions/logout.action'
 
 @Component({
   selector: 'app-settings',
@@ -46,7 +47,9 @@ export class SettingsComponent implements OnInit, OnDestroy {
     this.store.dispatch(updateCurrentUserAction({ currentUserInput }))
   }
 
-  logout(): void {}
+  logout(): void {
+    this.store.dispatch(logoutAction())
+  }
 
   private initializeValues(): void {
     this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector))
