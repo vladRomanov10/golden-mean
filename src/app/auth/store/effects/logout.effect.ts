@@ -5,8 +5,9 @@ import {
   logoutFailureAction,
   logoutSuccessAction,
 } from 'src/app/auth/store/actions/logout.action'
-import { catchError, map, of, switchMap } from 'rxjs'
+import { catchError, map, of, switchMap, tap } from 'rxjs'
 import { AuthService } from 'src/app/auth/services/auth.service'
+import { Router } from '@angular/router'
 
 @Injectable()
 export class LogoutEffect {
@@ -26,8 +27,20 @@ export class LogoutEffect {
     ),
   )
 
+  private redirectAfterSubmit$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(logoutSuccessAction),
+        tap(() => {
+          this.router.navigateByUrl('/')
+        }),
+      ),
+    { dispatch: false },
+  )
+
   constructor(
     private actions$: Actions,
     private authService: AuthService,
+    private router: Router,
   ) {}
 }
