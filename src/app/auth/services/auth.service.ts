@@ -49,7 +49,7 @@ export class AuthService {
   ): Observable<CurrentUserInterface> {
     const url: string = environment.apiUrl + '/user'
     return this.http
-      .put<AuthResponseInterface>(url, currentUserInput)
+      .put<AuthResponseInterface>(url, { user: currentUserInput })
       .pipe(map(this.getUser))
   }
 
