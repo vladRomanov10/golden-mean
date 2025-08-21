@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { CurrentUserInterface } from 'src/app/shared/types/interfaces/currentUser.interface'
 import { filter, Observable, Subscription } from 'rxjs'
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendErrors.interface'
 import { select, Store } from '@ngrx/store'
 import {
@@ -68,10 +68,13 @@ export class SettingsComponent implements OnInit, OnDestroy {
   private initializeForm(): void {
     this.form = this.fb.group({
       image: this.currentUser.image,
-      username: this.currentUser.username,
+      username: [
+        this.currentUser.username,
+        [Validators.required, Validators.minLength(4)],
+      ],
       bio: this.currentUser.bio,
-      email: this.currentUser.email,
-      password: '',
+      email: [this.currentUser.email, [Validators.required, Validators.email]],
+      password: ['', [Validators.minLength(6), Validators.required]],
     })
   }
 }
