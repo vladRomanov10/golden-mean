@@ -4,7 +4,6 @@ import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendE
 @Component({
   selector: 'app-backendErrorMessages',
   templateUrl: './backendErrorMessages.component.html',
-  styleUrl: './backendErrorMessages.component.scss',
 })
 export class BackendErrorMessagesComponent implements OnInit {
   @Input('backendErrors') backendErrorsProps!: BackendErrorsInterface
