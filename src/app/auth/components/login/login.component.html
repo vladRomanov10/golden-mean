@@ -35,7 +35,7 @@
             <button
               class="btn btn-lg btn-primary pull-xs-right"
               type="submit"
-              [disabled]="isSubmitting$ | async"
+              [disabled]="(isSubmitting$ | async) || form.invalid"
             >
               Sign In
             </button>

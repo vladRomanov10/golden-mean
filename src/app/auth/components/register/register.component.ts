@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 import { select, Store } from '@ngrx/store'
 import { registerAction } from 'src/app/auth/store/actions/register.action'
@@ -14,7 +14,6 @@ import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendE
 @Component({
   selector: 'gm-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss',
 })
 export class RegisterComponent implements OnInit {
   public form!: FormGroup
@@ -40,9 +39,9 @@ export class RegisterComponent implements OnInit {
 
   private initializeForm(): void {
     this.form = this.fb.group({
-      username: '',
-      email: '',
-      password: '',
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     })
   }
 

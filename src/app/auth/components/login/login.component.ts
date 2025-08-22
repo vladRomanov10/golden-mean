@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
@@ -15,12 +15,11 @@ import { loginAction } from 'src/app/auth/store/actions/login.action'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
   public form!: FormGroup
-  isSubmitting$!: Observable<boolean>
-  backendErrors$!: Observable<BackendErrorsInterface | null>
+  public isSubmitting$!: Observable<boolean>
+  public backendErrors$!: Observable<BackendErrorsInterface | null>
 
   constructor(
     private fb: FormBuilder,
@@ -41,8 +40,8 @@ export class LoginComponent implements OnInit {
 
   private initializeForm(): void {
     this.form = this.fb.group({
-      email: '',
-      password: '',
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     })
   }
 
