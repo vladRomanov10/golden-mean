@@ -16,6 +16,7 @@ import { AuthService } from 'src/app/auth/services/auth.service'
 import { CurrentUserInterface } from 'src/app/shared/types/interfaces/currentUser.interface'
 
 import { Router } from '@angular/router'
+import { ArticleAuthorInterface } from 'src/app/shared/types/interfaces/articleAuthor.interface'
 
 @Injectable()
 export class RegisterEffect {
@@ -24,8 +25,8 @@ export class RegisterEffect {
       ofType(registerAction),
       switchMap(({ request }) => {
         return this.authService.register(request).pipe(
-          map((currentUser: CurrentUserInterface) => {
-            return registerSuccessActions({ currentUser })
+          map((currentUser: ArticleAuthorInterface) => {
+            return registerSuccessActions(currentUser)
           }),
           catchError((errorResponse: HttpErrorResponse) => {
             return of(
