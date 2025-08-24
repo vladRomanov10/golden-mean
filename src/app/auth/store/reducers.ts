@@ -43,7 +43,12 @@ const authReducer = createReducer(
       ...state,
       isSubmitting: false,
       isLoggedIn: true,
-      currentUser: action.currentUser,
+      currentUser: {
+        bio: '',
+        email: '',
+        image: action.image,
+        username: action.username,
+      },
     }),
   ),
   on(
