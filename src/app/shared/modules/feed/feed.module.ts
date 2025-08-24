@@ -11,6 +11,7 @@ import { ErrorMessageModule } from 'src/app/shared/modules/errorMessage/errorMes
 import { LoadingModule } from 'src/app/shared/modules/loading/loading.module'
 import { PaginationModule } from 'src/app/shared/modules/pagination/pagination.module'
 import { TagListModule } from 'src/app/shared/modules/tagList/tagList.module'
+import { FavoriteModule } from 'src/app/shared/modules/favorite/favorite.module'
 
 @NgModule({
   declarations: [FeedComponent],
@@ -23,6 +24,7 @@ import { TagListModule } from 'src/app/shared/modules/tagList/tagList.module'
     LoadingModule,
     PaginationModule,
     TagListModule,
+    FavoriteModule,
   ],
   exports: [FeedComponent],
   providers: [FeedService],
