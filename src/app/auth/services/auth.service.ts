@@ -11,17 +11,16 @@ import { HttpClient } from '@angular/common/http'
 import { LoginRequestInterface } from 'src/app/auth/types/loginRequest.interface'
 import { CurrentUserInputInterface } from 'src/app/shared/types/interfaces/currentUserInput.interface'
 import { LogoutResponseInterface } from 'src/app/auth/types/logoutResponse.interface'
+import { ArticleAuthorInterface } from 'src/app/shared/types/interfaces/articleAuthor.interface'
 
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
+  register(data: RegisterRequestInterface): Observable<ArticleAuthorInterface> {
     const url: string = environment.apiUrl + '/users'
 
-    return this.http
-      .post<AuthResponseInterface>(url, data)
-      .pipe(map(this.getUser))
+    return this.http.post<ArticleAuthorInterface>(url, data)
   }
 
   login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
