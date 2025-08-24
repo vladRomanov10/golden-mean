@@ -4,6 +4,7 @@ import { ActionTypes } from 'src/app/auth/store/actionTypes'
 import { RegisterRequestInterface } from 'src/app/auth/types/registerRequest.interface'
 import { CurrentUserInterface } from 'src/app/shared/types/interfaces/currentUser.interface'
 import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendErrors.interface'
+import { ArticleAuthorInterface } from 'src/app/shared/types/interfaces/articleAuthor.interface'
 
 export const registerAction = createAction(
   ActionTypes.REGISTER,
@@ -12,7 +13,7 @@ export const registerAction = createAction(
 
 export const registerSuccessActions = createAction(
   ActionTypes.REGISTER_SUCCESS,
-  props<{ currentUser: CurrentUserInterface }>(),
+  props<ArticleAuthorInterface>(),
 )
 
 export const registerFailureActions = createAction(
