@@ -1,6 +1,6 @@
 export interface CurrentUserInterface {
-  bio: string | null
+  bio: string
   email: string
-  image: string | null
+  image: string
   username: string
 }
