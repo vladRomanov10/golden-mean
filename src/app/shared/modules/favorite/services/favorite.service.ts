@@ -18,4 +18,14 @@ export class FavoriteService {
       }),
     )
   }
+
+  deleteFromFavorites(slug: string): Observable<ArticleInterface> {
+    const url = `${environment.apiUrl}/articles/${slug}/favorite`
+
+    return this.http.delete<ArticleResponseInterface>(url).pipe(
+      map((response: ArticleResponseInterface) => {
+        return response.article
+      }),
+    )
+  }
 }
