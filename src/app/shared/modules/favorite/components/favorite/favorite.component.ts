@@ -6,4 +6,8 @@ import { Component, Input } from '@angular/core'
 })
 export class FavoriteComponent {
   @Input('favoritesCount') favoritesCountProps!: number
+  @Input('articleSlug') articleSlugProps!: string
+  @Input('favorited') favoritedProps!: boolean
+
+  toggleFavorite(articleSlug: string): void {}
 }
