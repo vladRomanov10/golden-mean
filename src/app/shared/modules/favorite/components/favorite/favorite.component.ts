@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core'
+import { Store } from '@ngrx/store'
+import { addToFavoritesAction } from 'src/app/shared/modules/favorite/store/actions/addToFavorites.action'
 
 @Component({
   selector: 'app-favorite',
@@ -9,5 +11,17 @@ export class FavoriteComponent {
   @Input('articleSlug') articleSlugProps!: string
   @Input('favorited') favoritedProps!: boolean
 
-  toggleFavorite(articleSlug: string): void {}
+  constructor(private store: Store) {}
+
+  toggleFavorite(): void {
+    if (this.favoritedProps) {
+      return
+    } else {
+      this.addToFavorites(this.articleSlugProps)
+    }
+  }
+
+  private addToFavorites(slug: string) {
+    this.store.dispatch(addToFavoritesAction({ slug }))
+  }
 }
