@@ -8,7 +8,7 @@ export const deleteFromFavoritesAction = createAction(
 )
 export const deleteFromFavoritesSuccessAction = createAction(
   ActionTypes.DELETE_FROM_FAVORITES_SUCCESS,
-  props<{ article: ArticleInterface }>,
+  props<{ article: ArticleInterface }>(),
 )
 export const deleteFromFavoritesFailureAction = createAction(
   ActionTypes.DELETE_FROM_FAVORITES_FAILURE,
