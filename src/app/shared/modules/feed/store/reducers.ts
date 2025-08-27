@@ -6,6 +6,8 @@ import {
   getFeedSuccessAction,
 } from 'src/app/shared/modules/feed/store/actions/getFeed.action'
 import { routerNavigationAction } from '@ngrx/router-store'
+import { addToFavoritesSuccessAction } from 'src/app/shared/modules/favorite/store/actions/addToFavorites.action'
+import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
 
 const initialState: FeedStateInterface = {
   isLoading: false,
@@ -36,6 +38,29 @@ const feedReducer = createReducer(
       ...state,
       isLoading: false,
     }),
+  ),
+  on(
+    addToFavoritesSuccessAction,
+    (state: FeedStateInterface, action): FeedStateInterface => {
+      if (!state.data) {
+        return state
+      }
+      const updateArticles = state.data.articles.map(
+        (article: ArticleInterface) => {
+          if (article.slug === action.article.slug) {
+            return action.article
+          }
+          return article
+        },
+      )
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          articles: updateArticles,
+        },
+      }
+    },
   ),
   on(routerNavigationAction, (): FeedStateInterface => initialState),
 )
