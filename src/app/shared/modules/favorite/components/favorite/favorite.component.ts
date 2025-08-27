@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { addToFavoritesAction } from 'src/app/shared/modules/favorite/store/actions/addToFavorites.action'
+import { deleteFromFavoritesAction } from 'src/app/shared/modules/favorite/store/actions/deleteFromFavorites.action'
 
 @Component({
   selector: 'app-favorite',
@@ -15,13 +16,17 @@ export class FavoriteComponent {
 
   toggleFavorite(): void {
     if (this.favoritedProps) {
-      return
+      this.deleteFromFavorites(this.articleSlugProps)
     } else {
       this.addToFavorites(this.articleSlugProps)
     }
   }
 
-  private addToFavorites(slug: string) {
+  private addToFavorites(slug: string): void {
     this.store.dispatch(addToFavoritesAction({ slug }))
+  }
+
+  private deleteFromFavorites(slug: string): void {
+    this.store.dispatch(deleteFromFavoritesAction({ slug }))
   }
 }
