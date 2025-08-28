@@ -8,6 +8,7 @@ import {
 import { routerNavigationAction } from '@ngrx/router-store'
 import { addToFavoritesSuccessAction } from 'src/app/shared/modules/favorite/store/actions/addToFavorites.action'
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
+import { deleteFromFavoritesSuccessAction } from 'src/app/shared/modules/favorite/store/actions/deleteFromFavorites.action'
 
 const initialState: FeedStateInterface = {
   isLoading: false,
@@ -41,6 +42,7 @@ const feedReducer = createReducer(
   ),
   on(
     addToFavoritesSuccessAction,
+    deleteFromFavoritesSuccessAction,
     (state: FeedStateInterface, action): FeedStateInterface => {
       if (!state.data) {
         return state
