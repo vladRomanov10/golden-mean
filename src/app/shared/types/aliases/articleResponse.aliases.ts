@@ -3,3 +3,6 @@ import { ArticleResponseInterface } from 'src/app/shared/types/interfaces/articl
 export type GetArticleResponseInterface = ArticleResponseInterface
 export type PutArticleResponseInterface = ArticleResponseInterface
 export type PostArticleResponseInterface = ArticleResponseInterface
+
+export type AddToFavoritesResponseInterface = ArticleResponseInterface
+export type RemoveFromFavoritesResponseInterface = ArticleResponseInterface
