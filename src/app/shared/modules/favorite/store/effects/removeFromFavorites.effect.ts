@@ -5,13 +5,13 @@ import {
   removeFromFavoritesAction,
   removeFromFavoritesFailureAction,
   removeFromFavoritesSuccessAction,
-} from 'src/app/shared/modules/favorite/store/actions/removeFromFavoritesAction'
+} from 'src/app/shared/modules/favorite/store/actions/removeFromFavorites.action'
 import { catchError, map, of, switchMap } from 'rxjs'
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
 
 @Injectable()
-export class DeleteFromFavoritesEffect {
-  private deleteFromFavorites$ = createEffect(() =>
+export class RemoveFromFavoritesEffect {
+  private removeFromFavorites$ = createEffect(() =>
     this.actions$.pipe(
       ofType(removeFromFavoritesAction),
       switchMap(({ slug }) => {

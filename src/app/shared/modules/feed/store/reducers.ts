@@ -8,7 +8,7 @@ import {
 import { routerNavigationAction } from '@ngrx/router-store'
 import { addToFavoritesSuccessAction } from 'src/app/shared/modules/favorite/store/actions/addToFavorites.action'
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
-import { removeFromFavoritesSuccessAction } from 'src/app/shared/modules/favorite/store/actions/removeFromFavoritesAction'
+import { removeFromFavoritesSuccessAction } from 'src/app/shared/modules/favorite/store/actions/removeFromFavorites.action'
 
 const initialState: FeedStateInterface = {
   isLoading: false,
