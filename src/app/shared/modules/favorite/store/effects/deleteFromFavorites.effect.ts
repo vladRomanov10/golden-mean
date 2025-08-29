@@ -15,7 +15,7 @@ export class DeleteFromFavoritesEffect {
     this.actions$.pipe(
       ofType(deleteFromFavoritesAction),
       switchMap(({ slug }) => {
-        return this.favouriteService.deleteFromFavorites(slug).pipe(
+        return this.favouriteService.removeFromFavorites(slug).pipe(
           map((article: ArticleInterface) => {
             return deleteFromFavoritesSuccessAction({ article })
           }),
