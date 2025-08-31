@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
-import { FavoriteService } from 'src/app/shared/modules/favorite/services/favorite.service'
+import { FavoriteService } from 'src/app/shared/modules/addToFavorites/services/favorite.service'
 import {
   removeFromFavoritesAction,
   removeFromFavoritesFailureAction,
   removeFromFavoritesSuccessAction,
-} from 'src/app/shared/modules/favorite/store/actions/removeFromFavorites.action'
+} from 'src/app/shared/modules/addToFavorites/store/actions/removeFromFavorites.action'
 import { catchError, map, of, switchMap } from 'rxjs'
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
 
