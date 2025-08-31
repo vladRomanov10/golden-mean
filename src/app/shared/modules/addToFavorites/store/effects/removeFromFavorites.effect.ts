@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
-import { FavoriteService } from 'src/app/shared/modules/addToFavorites/services/favorite.service'
+import { AddToFavoritesService } from 'src/app/shared/modules/addToFavorites/services/addToFavorites.service'
 import {
   removeFromFavoritesAction,
   removeFromFavoritesFailureAction,
@@ -29,6 +29,6 @@ export class RemoveFromFavoritesEffect {
 
   constructor(
     private actions$: Actions,
-    private favouriteService: FavoriteService,
+    private favouriteService: AddToFavoritesService,
   ) {}
 }

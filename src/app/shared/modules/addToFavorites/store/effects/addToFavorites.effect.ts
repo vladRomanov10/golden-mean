@@ -6,7 +6,7 @@ import {
   addToFavoritesSuccessAction,
 } from 'src/app/shared/modules/addToFavorites/store/actions/addToFavorites.action'
 import { catchError, map, of, switchMap } from 'rxjs'
-import { FavoriteService } from 'src/app/shared/modules/addToFavorites/services/favorite.service'
+import { AddToFavoritesService } from 'src/app/shared/modules/addToFavorites/services/addToFavorites.service'
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
 
 @Injectable()
@@ -29,6 +29,6 @@ export class AddToFavoritesEffect {
 
   constructor(
     private actions$: Actions,
-    private favoriteService: FavoriteService,
+    private favoriteService: AddToFavoritesService,
   ) {}
 }

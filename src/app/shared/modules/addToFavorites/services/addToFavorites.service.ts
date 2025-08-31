@@ -9,7 +9,7 @@ import {
 } from 'src/app/shared/types/aliases/articleResponse.aliases'
 
 @Injectable()
-export class FavoriteService {
+export class AddToFavoritesService {
   constructor(private http: HttpClient) {}
 
   addToFavorites(slug: string): Observable<ArticleInterface> {
