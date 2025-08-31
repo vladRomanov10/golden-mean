@@ -6,9 +6,9 @@ import {
   getFeedSuccessAction,
 } from 'src/app/shared/modules/feed/store/actions/getFeed.action'
 import { routerNavigationAction } from '@ngrx/router-store'
-import { addToFavoritesSuccessAction } from 'src/app/shared/modules/favorite/store/actions/addToFavorites.action'
+import { addToFavoritesSuccessAction } from 'src/app/shared/modules/addToFavorites/store/actions/addToFavorites.action'
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
-import { removeFromFavoritesSuccessAction } from 'src/app/shared/modules/favorite/store/actions/removeFromFavorites.action'
+import { removeFromFavoritesSuccessAction } from 'src/app/shared/modules/addToFavorites/store/actions/removeFromFavorites.action'
 
 const initialState: FeedStateInterface = {
   isLoading: false,

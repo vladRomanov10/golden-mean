@@ -1,16 +1,16 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
-import { addToFavoritesAction } from 'src/app/shared/modules/favorite/store/actions/addToFavorites.action'
-import { removeFromFavoritesAction } from 'src/app/shared/modules/favorite/store/actions/removeFromFavorites.action'
+import { addToFavoritesAction } from 'src/app/shared/modules/addToFavorites/store/actions/addToFavorites.action'
+import { removeFromFavoritesAction } from 'src/app/shared/modules/addToFavorites/store/actions/removeFromFavorites.action'
 import { Subscription } from 'rxjs'
 import { isLoggedInSelector } from 'src/app/auth/store/selectors'
 import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-favorite',
-  templateUrl: './favorite.component.html',
+  templateUrl: './addToFavorites.component.html',
 })
-export class FavoriteComponent implements OnInit, OnDestroy {
+export class AddToFavoritesComponent implements OnInit, OnDestroy {
   @Input('favoritesCount') favoritesCountProps!: number
   @Input('articleSlug') articleSlugProps!: string
   @Input('isFavorited') isFavoritedProps!: boolean

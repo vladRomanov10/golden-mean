@@ -4,9 +4,9 @@ import {
   addToFavoritesAction,
   addToFavoritesFailureAction,
   addToFavoritesSuccessAction,
-} from 'src/app/shared/modules/favorite/store/actions/addToFavorites.action'
+} from 'src/app/shared/modules/addToFavorites/store/actions/addToFavorites.action'
 import { catchError, map, of, switchMap } from 'rxjs'
-import { FavoriteService } from 'src/app/shared/modules/favorite/services/favorite.service'
+import { FavoriteService } from 'src/app/shared/modules/addToFavorites/services/favorite.service'
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
 
 @Injectable()
