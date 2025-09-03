@@ -7,7 +7,7 @@ import { isLoggedInSelector } from 'src/app/auth/store/selectors'
 import { Router } from '@angular/router'
 
 @Component({
-  selector: 'app-favorite',
+  selector: 'app-add-to-favorites',
   templateUrl: './addToFavorites.component.html',
 })
 export class AddToFavoritesComponent implements OnInit, OnDestroy {

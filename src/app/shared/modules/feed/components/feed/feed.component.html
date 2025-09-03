@@ -11,11 +11,11 @@
         <span class="date">{{ article.createdAt }}</span>
       </div>
       <div class="pull-xs-right">
-        <app-favorite
+        <app-add-to-favorites
           [favoritesCount]="article.favoritesCount"
           [articleSlug]="article.slug"
           [isFavorited]="article.favorited"
-        ></app-favorite>
+        ></app-add-to-favorites>
       </div>
     </div>
     <a [routerLink]="['/articles', article.slug]" class="preview-link">
