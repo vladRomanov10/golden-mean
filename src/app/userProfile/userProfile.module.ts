@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common'
 import { UserProfileComponent } from './components/userProfile/userProfile.component'
 import { RouterModule } from '@angular/router'
 import { UserProfileService } from 'src/app/userProfile/services/userProfile.service'
+import { EffectsModule } from '@ngrx/effects'
+import { GetUserProfileEffect } from 'src/app/userProfile/effects/getUserProfile.effect'
 
 const routes = [
   { path: 'profiles/:slug', component: UserProfileComponent },
@@ -11,7 +13,11 @@ const routes = [
 
 @NgModule({
   declarations: [UserProfileComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    EffectsModule.forFeature([GetUserProfileEffect]),
+  ],
   providers: [UserProfileService],
 })
 export class UserProfileModule {}
