@@ -5,7 +5,7 @@ import { map, Observable } from 'rxjs'
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
 import { environment } from 'src/environments/environment'
 import { PostArticleResponseInterface } from 'src/app/shared/types/aliases/articleResponse.aliases'
-import { PostArticleRequestInterface } from 'src/app/shared/types/aliases/articleRequest.aliases'
+import { PostArticleRequestInterface } from 'src/app/createArticle/types/aliases/postArticleRequest.aliase'
 
 @Injectable()
 export class CreateArticleService {

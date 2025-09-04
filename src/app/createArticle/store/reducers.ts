@@ -1,4 +1,4 @@
-import { CreateArticleStateInterface } from 'src/app/createArticle/types/createArticleState.interface'
+import { CreateArticleStateInterface } from 'src/app/createArticle/types/interfaces/createArticleState.interface'
 import { Action, createReducer, on } from '@ngrx/store'
 import {
   createArticleAction,

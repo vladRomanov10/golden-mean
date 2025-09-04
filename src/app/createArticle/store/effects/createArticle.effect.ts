@@ -15,7 +15,7 @@ import {
 } from 'src/app/createArticle/store/actions/createArticle.action'
 
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
-import { PostArticleRequestInterface } from 'src/app/shared/types/aliases/articleRequest.aliases'
+import { PostArticleRequestInterface } from 'src/app/createArticle/types/aliases/postArticleRequest.aliase'
 
 @Injectable()
 export class CreateArticleEffect {

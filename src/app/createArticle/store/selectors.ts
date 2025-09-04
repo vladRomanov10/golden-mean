@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
-import { CreateArticleStateInterface } from 'src/app/createArticle/types/createArticleState.interface'
+import { CreateArticleStateInterface } from 'src/app/createArticle/types/interfaces/createArticleState.interface'
 import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendErrors.interface'
 
 export const createArticleFeatureSelector =
