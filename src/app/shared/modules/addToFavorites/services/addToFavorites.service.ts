@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment'
 import {
   AddToFavoritesResponseInterface,
   RemoveFromFavoritesResponseInterface,
-} from 'src/app/shared/types/aliases/articleResponse.aliases'
+} from 'src/app/shared/modules/addToFavorites/types/aliases/addToFavoritesResponse.aliases'
 
 @Injectable()
 export class AddToFavoritesService {
