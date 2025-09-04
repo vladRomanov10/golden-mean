@@ -7,7 +7,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects'
 import { catchError, of, switchMap, map, tap } from 'rxjs'
 
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
-import { PutArticleRequestInterface } from 'src/app/shared/types/aliases/articleRequest.aliases'
+import { PutArticleRequestInterface } from 'src/app/editArticle/types/aliases/putArticleRequest.alias'
 import { EditArticleService } from 'src/app/editArticle/services/editArticle.service'
 import {
   updateArticleAction,

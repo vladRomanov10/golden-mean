@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
 import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendErrors.interface'
-import { EditArticleStateInterface } from 'src/app/editArticle/types/editArticleState.interface'
+import { EditArticleStateInterface } from 'src/app/editArticle/types/interfaces/editArticleState.interface'
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
 
 export const editArticleFeatureSelector =
