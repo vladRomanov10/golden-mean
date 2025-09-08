@@ -1,5 +1,7 @@
-import { UserProfileInterface } from 'src/app/shared/types/interfaces/userProfile.interface'
-
-export interface ArticleAuthorInterface extends UserProfileInterface {
+export interface ArticleAuthorInterface {
+  following: boolean
   id: number
+  image: string
+  bio?: string
+  username?: string
 }
