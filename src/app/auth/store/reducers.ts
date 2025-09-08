@@ -39,18 +39,35 @@ const authReducer = createReducer(
   ),
   on(
     registerSuccessActions,
-    (state: AuthStateInterface, action): AuthStateInterface => ({
-      ...state,
-      isSubmitting: false,
-      isLoggedIn: true,
-      currentUser: {
-        bio: '',
-        email: '',
-        image: action.image,
-        username: action.username,
-      },
-    }),
+    (state: AuthStateInterface, action): AuthStateInterface => {
+      if (action.username) {
+        return {
+          ...state,
+          isSubmitting: false,
+          isLoggedIn: true,
+          currentUser: {
+            bio: '',
+            email: '',
+            image: action.image,
+            username: action.username,
+          },
+        }
+      } else {
+        return { ...state, isSubmitting: false, isLoggedIn: true }
+      }
+    },
   ),
+  // (state: AuthStateInterface, action): AuthStateInterface => ({
+  //   ...state,
+  //   isSubmitting: false,
+  //   isLoggedIn: true,
+  //   currentUser: {
+  //     bio: '',
+  //     email: '',
+  //     image: action.image,
+  //     username: action.username,
+  //   },
+  // }),
   on(
     registerFailureActions,
     (state: AuthStateInterface, action): AuthStateInterface => ({
