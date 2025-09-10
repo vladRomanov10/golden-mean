@@ -12,14 +12,14 @@
           <a [routerLink]="['/profiles', article.author.username]">
             {{ article.author.username }}
           </a>
-          <span class="date">{{ article.createdAt }}</span>
+          <span class="date">{{ article.createdAt | date: 'MMMM d, y' }}</span>
         </div>
       } @else {
         <a>
           <img [src]="article.author.image" />
         </a>
         <div class="info">
-          <span class="date">{{ article.createdAt }}</span>
+          <span class="date">{{ article.createdAt | date: 'MMMM d, y' }}</span>
         </div>
       }
       <div class="pull-xs-right">
