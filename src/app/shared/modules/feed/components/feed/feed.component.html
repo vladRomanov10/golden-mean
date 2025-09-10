@@ -4,12 +4,24 @@
 <div *ngIf="feed$ | async as feed">
   <div class="article-preview" *ngFor="let article of feed.articles">
     <div class="article-meta">
-      <a>
-        <img [src]="article.author.image" />
-      </a>
-      <div class="info">
-        <span class="date">{{ article.createdAt }}</span>
-      </div>
+      @if (article.author.username) {
+        <a [routerLink]="['/profiles', article.author.username]">
+          <img [src]="article.author.image" />
+        </a>
+        <div class="info">
+          <a [routerLink]="['/profiles', article.author.username]">
+            {{ article.author.username }}
+          </a>
+          <span class="date">{{ article.createdAt }}</span>
+        </div>
+      } @else {
+        <a>
+          <img [src]="article.author.image" />
+        </a>
+        <div class="info">
+          <span class="date">{{ article.createdAt }}</span>
+        </div>
+      }
       <div class="pull-xs-right">
         <app-add-to-favorites
           [favoritesCount]="article.favoritesCount"
@@ -21,6 +33,7 @@
     <a [routerLink]="['/articles', article.slug]" class="preview-link">
       <h1>{{ article.title }}</h1>
       <p>{{ article.description }}</p>
+      <span>Read more...</span>
       <app-tag-list [tags]="article.tagList"></app-tag-list>
     </a>
   </div>
