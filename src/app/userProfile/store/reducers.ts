@@ -26,13 +26,10 @@ const userProfileReducer = createReducer(
       isLoading: false,
     }),
   ),
-  on(
-    getUserProfileFailureAction,
-    (state: UserProfileStateInterface, action) => ({
-      ...state,
-      isLoading: false,
-    }),
-  ),
+  on(getUserProfileFailureAction, (state: UserProfileStateInterface) => ({
+    ...state,
+    isLoading: false,
+  })),
 )
 
 export function reducers(state: UserProfileStateInterface, action: Action) {
