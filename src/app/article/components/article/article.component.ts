@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store'
 import { ActivatedRoute } from '@angular/router'
 import { getArticleAction } from 'src/app/article/store/actions/getArticle.action'
 import { ArticleInterface } from 'src/app/shared/types/interfaces/article.interface'
-import { combineLatestWith, map, Observable, Subscription } from 'rxjs'
+import { filter, map, Observable, Subscription } from 'rxjs'
 import {
   articleSelector,
   errorSelector,
@@ -20,14 +20,12 @@ import { BackendErrorsInterface } from 'src/app/shared/types/interfaces/backendE
   styleUrl: './article.component.scss',
 })
 export class ArticleComponent implements OnInit, OnDestroy {
-  public article!: ArticleInterface | null
+  public article!: ArticleInterface
   public isLoading$!: Observable<boolean>
   public error$!: Observable<BackendErrorsInterface | null>
   public isAuthor$!: Observable<boolean>
 
-  public articleSelector$!: Observable<ArticleInterface | null>
-  public currentUserSelector$!: Observable<CurrentUserInterface | null>
-
+  private currentUserSelector$!: Observable<CurrentUserInterface>
   private articleSubscription!: Subscription
   private slug!: string | null
 
@@ -54,20 +52,14 @@ export class ArticleComponent implements OnInit, OnDestroy {
     this.slug = this.route.snapshot.paramMap.get('slug')
     this.isLoading$ = this.store.pipe(select(isLoadingSelector))
     this.error$ = this.store.pipe(select(errorSelector))
-    this.articleSelector$ = this.store.pipe(select(articleSelector))
-    this.currentUserSelector$ = this.store.pipe(select(currentUserSelector))
-    this.isAuthor$ = this.articleSelector$.pipe(
-      combineLatestWith(this.currentUserSelector$),
+    this.currentUserSelector$ = this.store.pipe(
+      select(currentUserSelector),
+      filter(Boolean),
+    )
+    this.isAuthor$ = this.currentUserSelector$.pipe(
       map(
-        ([article, currentUser]: [
-          ArticleInterface | null,
-          CurrentUserInterface | null,
-        ]) => {
-          if (!article || !currentUser) {
-            return false
-          }
-          return article.author.username === currentUser.username
-        },
+        (currentUser: CurrentUserInterface) =>
+          this.article.author.username === currentUser.username,
       ),
     )
   }
@@ -78,8 +70,8 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   private initializeListeners() {
     this.articleSubscription = this.store
-      .pipe(select(articleSelector))
-      .subscribe((article: ArticleInterface | null) => {
+      .pipe(select(articleSelector), filter(Boolean))
+      .subscribe((article: ArticleInterface) => {
         this.article = article
       })
   }
