@@ -11,7 +11,7 @@
             {{ article.author.username }}
           </a>
           <span class="date">
-            {{ article.createdAt }}
+            {{ article.createdAt | date: 'MMMM d, y' }}
           </span>
         </div>
         <span *ngIf="isAuthor$ | async">
