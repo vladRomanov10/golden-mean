@@ -1,1 +1,23 @@
-<p>user-profile works!</p>
+<div class="profile-page" *ngIf="userProfile">
+  <div class="user-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 offset-md-1">
+          <img
+            class="user-img"
+            src="https://99px.ru/sstorage/1/2025/05/image_12805251933054522370.jpg"
+          />
+          <h4>{{ userProfile.username }}</h4>
+          <p>{{ userProfile.bio }}</p>
+          <div>FOLLOW USER BUTTON</div>
+          <a
+            class="btn btn-sm btn-outline-secondary action-btn"
+            *ngIf="isCurrentUserProfile$ | async"
+            [routerLink]="['/settings']"
+            >Edit Profile Settings</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
