@@ -5,6 +5,7 @@ import {
   getUserProfileFailureAction,
   getUserProfileSuccessAction,
 } from 'src/app/userProfile/store/actions/getUserProfile.action'
+import { routerNavigationAction } from '@ngrx/router-store'
 
 const initialState: UserProfileStateInterface = {
   data: null,
@@ -30,6 +31,7 @@ const userProfileReducer = createReducer(
     ...state,
     isLoading: false,
   })),
+  on(routerNavigationAction, (): UserProfileStateInterface => initialState),
 )
 
 export function reducers(state: UserProfileStateInterface, action: Action) {
