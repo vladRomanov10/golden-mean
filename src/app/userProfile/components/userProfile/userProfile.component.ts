@@ -20,11 +20,11 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   public userProfile!: UserProfileInterface
   public isLoading$!: Observable<boolean>
   public error$!: Observable<string | null>
+  public isCurrentUserProfile$!: Observable<boolean>
 
   private slug!: string | null
   private apiUrl!: string
   private userProfileSubscription!: Subscription
-  private isCurrentUserProfile$!: Observable<boolean>
   private currentUser$!: Observable<CurrentUserInterface>
 
   constructor(
