@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { UserProfileInterface } from 'src/app/shared/types/interfaces/userProfile.interface'
 import { combineLatestWith, filter, map, Observable, Subscription } from 'rxjs'
 import { select, Store } from '@ngrx/store'
-import { ActivatedRoute, Router } from '@angular/router'
+import { ActivatedRoute, Params, Router } from '@angular/router'
 import { getUserProfileAction } from 'src/app/userProfile/store/actions/getUserProfile.action'
 import {
   errorSelector,
@@ -24,7 +24,10 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   public apiUrl!: string
 
   private slug!: string | null
+
   private userProfileSubscription!: Subscription
+  private routeParamsSubscription!: Subscription
+
   private currentUser$!: Observable<CurrentUserInterface>
 
   constructor(
@@ -35,12 +38,12 @@ export class UserProfileComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initializeValues()
-    this.fetchData()
     this.initializeListeners()
   }
 
   ngOnDestroy(): void {
     this.userProfileSubscription.unsubscribe()
+    this.routeParamsSubscription.unsubscribe()
   }
 
   private initializeValues(): void {
@@ -74,5 +77,11 @@ export class UserProfileComponent implements OnInit, OnDestroy {
       .subscribe((userProfile: UserProfileInterface) => {
         this.userProfile = userProfile
       })
+    this.routeParamsSubscription = this.route.params.subscribe(
+      (params: Params) => {
+        this.slug = params['slug']
+        this.fetchData()
+      },
+    )
   }
 }
