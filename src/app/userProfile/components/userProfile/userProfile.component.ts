@@ -18,10 +18,11 @@ import { CurrentUserInterface } from 'src/app/shared/types/interfaces/currentUse
 })
 export class UserProfileComponent implements OnInit, OnDestroy {
   public userProfile!: UserProfileInterface
+  public apiUrl!: string
+
   public isLoading$!: Observable<boolean>
   public error$!: Observable<string | null>
   public isCurrentUserProfile$!: Observable<boolean>
-  public apiUrl!: string
 
   private slug!: string | null
 
@@ -29,6 +30,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   private routeParamsSubscription!: Subscription
 
   private currentUser$!: Observable<CurrentUserInterface>
+  private userProfile$!: Observable<UserProfileInterface>
 
   constructor(
     private store: Store,
@@ -55,14 +57,21 @@ export class UserProfileComponent implements OnInit, OnDestroy {
       select(currentUserSelector),
       filter(Boolean),
     )
+    this.userProfile$ = this.store.pipe(
+      select(userProfileSelector),
+      filter(Boolean),
+    )
     this.apiUrl = isFavorites
       ? `/articles?favorited=${this.slug}`
       : `/articles?author=${this.slug}`
 
     this.isCurrentUserProfile$ = this.currentUser$.pipe(
+      combineLatestWith(this.userProfile$),
       map(
-        (currentUser: CurrentUserInterface) =>
-          this.userProfile.username === currentUser.username,
+        ([currentUser, userProfile]: [
+          CurrentUserInterface,
+          UserProfileInterface,
+        ]) => currentUser.username === userProfile.username,
       ),
     )
   }
