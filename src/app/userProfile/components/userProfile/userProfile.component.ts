@@ -77,7 +77,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     )
   }
 
-  private fetchData(): void {
+  private fetchUserProfile(): void {
     this.store.dispatch(getUserProfileAction({ slug: `${this.slug}` }))
   }
 
@@ -90,7 +90,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     this.routeParamsSubscription = this.route.params.subscribe(
       (params: Params) => {
         this.slug = params['slug']
-        this.fetchData()
+        this.fetchUserProfile()
       },
     )
   }
