@@ -18,6 +18,7 @@ import { CurrentUserInterface } from 'src/app/shared/types/interfaces/currentUse
 })
 export class UserProfileComponent implements OnInit, OnDestroy {
   public userProfile!: UserProfileInterface
+  public apiUrl!: string
 
   public isLoading$!: Observable<boolean>
   public error$!: Observable<string | null>
@@ -47,9 +48,9 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     this.routeParamsSubscription.unsubscribe()
   }
 
-  getApiUrl(): string {
+  private getApiUrl(): void {
     const isFavorites = this.router.url.includes('favorites')
-    return isFavorites
+    this.apiUrl = isFavorites
       ? `/articles?favorited=${this.slug}`
       : `/articles?author=${this.slug}`
   }
@@ -90,6 +91,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     this.routeParamsSubscription = this.route.params.subscribe(
       (params: Params) => {
         this.slug = params['slug']
+        this.getApiUrl()
         this.fetchUserProfile()
       },
     )
