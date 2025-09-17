@@ -48,13 +48,6 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     this.routeParamsSubscription.unsubscribe()
   }
 
-  private getApiUrl(): void {
-    const isFavorites = this.router.url.includes('favorites')
-    this.apiUrl = isFavorites
-      ? `/articles?favorited=${this.slug}`
-      : `/articles?author=${this.slug}`
-  }
-
   private initializeValues(): void {
     this.slug = this.route.snapshot.paramMap.get('slug')
     this.isLoading$ = this.store.pipe(select(isLoadingSelector))
@@ -78,10 +71,6 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     )
   }
 
-  private fetchUserProfile(): void {
-    this.store.dispatch(getUserProfileAction({ slug: `${this.slug}` }))
-  }
-
   private initializeListeners(): void {
     this.userProfileSubscription = this.store
       .pipe(select(userProfileSelector), filter(Boolean))
@@ -95,5 +84,16 @@ export class UserProfileComponent implements OnInit, OnDestroy {
         this.fetchUserProfile()
       },
     )
+  }
+
+  private fetchUserProfile(): void {
+    this.store.dispatch(getUserProfileAction({ slug: `${this.slug}` }))
+  }
+
+  private getApiUrl(): void {
+    const isFavorites = this.router.url.includes('favorites')
+    this.apiUrl = isFavorites
+      ? `/articles?favorited=${this.slug}`
+      : `/articles?author=${this.slug}`
   }
 }
