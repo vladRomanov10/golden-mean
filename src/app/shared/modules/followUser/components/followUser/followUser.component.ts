@@ -1,10 +1,7 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-follow-user',
-  templateUrl: './follow-user.component.html',
-  styleUrl: './follow-user.component.scss'
+  templateUrl: './followUser.component.html',
 })
-export class FollowUserComponent {
-
-}
+export class FollowUserComponent {}
