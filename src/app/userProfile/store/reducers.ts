@@ -1,4 +1,4 @@
-import { UserProfileStateInterface } from 'src/app/userProfile/types/userProfileState.interface'
+import { UserProfileStateInterface } from 'src/app/userProfile/types/interfaces/userProfileState.interface'
 import { Action, createReducer, on } from '@ngrx/store'
 import {
   getUserProfileAction,

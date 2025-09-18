@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
-import { UserProfileStateInterface } from 'src/app/userProfile/types/userProfileState.interface'
+import { UserProfileStateInterface } from 'src/app/userProfile/types/interfaces/userProfileState.interface'
 
 export const userProfileFeatureSelector =
   createFeatureSelector<UserProfileStateInterface>('userProfile')
