@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { map, Observable } from 'rxjs'
 import { UserProfileInterface } from 'src/app/shared/types/interfaces/userProfile.interface'
 import { environment } from 'src/environments/environment'
-import { GetUserProfileResponseInterface } from 'src/app/userProfile/types/getUserProfileResponse.interface'
+import { GetUserProfileResponseInterface } from 'src/app/userProfile/types/aliases/getUserProfileResponse.alias'
 
 @Injectable({
   providedIn: 'root',
