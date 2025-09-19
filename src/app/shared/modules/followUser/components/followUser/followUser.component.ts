@@ -1,7 +1,9 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 
 @Component({
   selector: 'app-follow-user',
   templateUrl: './followUser.component.html',
 })
-export class FollowUserComponent {}
+export class FollowUserComponent {
+  @Input('isFollowing') isFollowingProps!: boolean
+}
