@@ -15,7 +15,7 @@ export class AddToFavoritesEffect {
     this.actions$.pipe(
       ofType(addToFavoritesAction),
       switchMap(({ slug }) => {
-        return this.favoriteService.addToFavorites(slug).pipe(
+        return this.addToFavoritesService.addToFavorites(slug).pipe(
           map((article: ArticleInterface) => {
             return addToFavoritesSuccessAction({ article })
           }),
@@ -29,6 +29,6 @@ export class AddToFavoritesEffect {
 
   constructor(
     private actions$: Actions,
-    private favoriteService: AddToFavoritesService,
+    private addToFavoritesService: AddToFavoritesService,
   ) {}
 }
