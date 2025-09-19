@@ -9,7 +9,9 @@
           />
           <h4>{{ userProfile.username }}</h4>
           <p>{{ userProfile.bio }}</p>
-          <div>FOLLOW USER BUTTON</div>
+          <app-follow-user
+            [isFollowing]="userProfile.following"
+          ></app-follow-user>
           <a
             class="btn btn-sm btn-outline-secondary action-btn"
             *ngIf="isCurrentUserProfile$ | async"
