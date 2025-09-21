@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core'
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { unfollowUserAction } from 'src/app/shared/modules/followUser/store/actions/unfollowUser.action'
 import { followUserAction } from 'src/app/shared/modules/followUser/store/actions/followUser.action'
