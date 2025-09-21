@@ -9,11 +9,11 @@
           />
           <h4>{{ userProfile.username }}</h4>
           <p>{{ userProfile.bio }}</p>
-
           <app-follow-user
             *ngIf="!(isCurrentUserProfile$ | async)"
             [isFollowing]="userProfile.following"
             [slug]="slug"
+            [userName]="userProfile.username"
           ></app-follow-user>
           <a
             class="btn btn-sm btn-outline-secondary action-btn"

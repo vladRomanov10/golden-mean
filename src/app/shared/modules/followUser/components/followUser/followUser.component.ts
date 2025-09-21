@@ -10,6 +10,7 @@ import { followUserAction } from 'src/app/shared/modules/followUser/store/action
 export class FollowUserComponent {
   @Input('isFollowing') isFollowingProps!: boolean
   @Input('slug') slugProps!: string | null
+  @Input('userName') userNameProps!: string
 
   constructor(private store: Store) {}
 
