@@ -19,12 +19,11 @@ import { CurrentUserInterface } from 'src/app/shared/types/interfaces/currentUse
 export class UserProfileComponent implements OnInit, OnDestroy {
   public userProfile!: UserProfileInterface
   public apiUrl!: string
+  public slug!: string | null
 
   public isLoading$!: Observable<boolean>
   public error$!: Observable<string | null>
   public isCurrentUserProfile$!: Observable<boolean>
-
-  private slug!: string | null
 
   private userProfileSubscription!: Subscription
   private routeParamsSubscription!: Subscription
