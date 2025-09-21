@@ -6,6 +6,8 @@ import {
   getUserProfileSuccessAction,
 } from 'src/app/userProfile/store/actions/getUserProfile.action'
 import { routerNavigationAction } from '@ngrx/router-store'
+import { followUserSuccessAction } from 'src/app/shared/modules/followUser/store/actions/followUser.action'
+import { unfollowUserSuccessAction } from 'src/app/shared/modules/followUser/store/actions/unfollowUser.action'
 
 const initialState: UserProfileStateInterface = {
   data: null,
@@ -30,6 +32,14 @@ const userProfileReducer = createReducer(
   on(getUserProfileFailureAction, (state: UserProfileStateInterface) => ({
     ...state,
     isLoading: false,
+  })),
+  on(followUserSuccessAction, (state: UserProfileStateInterface, action) => ({
+    ...state,
+    data: action.userProfile,
+  })),
+  on(unfollowUserSuccessAction, (state: UserProfileStateInterface, action) => ({
+    ...state,
+    data: action.userProfile,
   })),
   on(routerNavigationAction, (): UserProfileStateInterface => initialState),
 )
